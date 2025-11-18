@@ -3,78 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MON PORTFOLIO WEB</title>
-    <!-- 
-        Ceci est la ligne corrigée qui résout le problème de mise en page.
-        Le chemin /mon-portfolio-web/ est essentiel pour GitHub Pages.
-    -->
+    <title>SOCIETE L V DIONYSIENNE MC - Exploits & Parcours</title>
+    <!-- CE LIEN est la clé : il va chercher le fichier de style nommé style.css -->
     <link rel="stylesheet" href="/mon-portfolio-web/style.css">
-
-    <!-- Optionnel : Si vous avez un fichier JavaScript, corrigez son chemin de la même manière -->
-    <!-- <script src="/mon-portfolio-web/script.js" defer></script> -->
-
+    
+    <!-- Ajout des icônes pour les réseaux sociaux -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJc5vG+6tG04S+lWjN/lH5L6M5L6P6N5R5R5U6R5N5/85A5J5S5V5Q5R5W5X5Y5Z5" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
-    <!-- 1. Section Header / Navigation -->
+    <!-- 1. Header et Navigation -->
     <header class="header">
-        <h1>MON PORTFOLIO WEB</h1>
+        <!-- Logo de la societe-l-v-dionysienne-mc -->
+        <div style="text-align: center; margin-bottom: 10px;">
+            <img src="uploaded:1000031766.png-9870b1c4-ec96-4f15-8666-4e5e9c45e653" alt="Logo de SOCIETE L V DIONYSIENNE MC" style="max-height: 80px; width: auto; border-radius: 8px; box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);">
+        </div>
+        <h1>SOCIETE L V DIONYSIENNE MC</h1>
         <nav>
             <ul>
                 <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#projets">Projets</a></li>
-                <li><a href="#apropos">À Propos</a></li>
+                <li><a href="#photos">Galerie Photos</a></li>
+                <li><a href="#videos">Vidéothèque</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- 2. Section Accueil -->
+    <!-- 2. Section Accueil (Vitrine) -->
     <section id="accueil" class="hero">
-        <h2>Bienvenue sur mon portfolio.</h2>
-        <p>Découvrez mes travaux et mon parcours dans le développement web.</p>
-        <!-- Si vous avez une image d'introduction, assurez-vous que son chemin est corrigé si elle est dans un sous-dossier -->
-        <!-- Exemple : <img src="/mon-portfolio-web/images/photo_profil.jpg" alt="Photo de profil"> -->
+        <div class="hero-content">
+            <h2>Découvrez les Exploits de Notre Parcours</h2>
+            <p>Bienvenue sur notre vitrine. Ici, nous partageons les moments forts, les réalisations et le chemin parcouru à travers des images et des vidéos captivantes.</p>
+            
+            <!-- Section Statistiques -->
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number">150+</span>
+                    <span class="stat-label">Photos Partagées</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">25</span>
+                    <span class="stat-label">Vidéos d'Exploits</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5k+</span>
+                    <span class="stat-label">Abonnés Réseaux</span>
+                </div>
+            </div>
+
+            <a href="#photos" class="cta-button">Voir la Galerie Complète</a>
+        </div>
     </section>
 
-    <!-- 3. Section Projets (Placeholder) -->
-    <section id="projets" class="projects">
-        <h2>Mes Projets Récents</h2>
-        <div class="project-card">
-            <h3>Projet 1 : Nom du Projet</h3>
-            <p>Description courte du projet. Utilisez votre propre texte ici.</p>
-            <a href="#">Voir le projet</a>
-        </div>
-        <div class="project-card">
-            <h3>Projet 2 : Autre Projet</h3>
-            <p>Description courte du deuxième projet. Remplacez-moi par votre contenu.</p>
-            <a href="#">Voir le projet</a>
+    <!-- 3. Section Galerie Photos -->
+    <section id="photos" class="gallery">
+        <h2>Galerie Photo de Nos Réalisations</h2>
+        <p>Sélection des clichés les plus mémorables de notre histoire. (N'oubliez pas de remplacer les placeholders par vos images !)</p>
+
+        <div class="gallery-grid">
+            <!-- CARTE PHOTO 1 -->
+            <div class="gallery-item">
+                <img src="https://placehold.co/600x400/34495e/ffffff?text=EXPLOIT+1" alt="Description de l'exploit 1">
+                <div class="caption">Exploit Mémorable : [Titre à remplacer]</div>
+            </div>
+            
+            <!-- CARTE PHOTO 2 -->
+            <div class="gallery-item">
+                <img src="https://placehold.co/600x400/34495e/ffffff?text=EXPLOIT+2" alt="Description de l'exploit 2">
+                <div class="caption">Étape Clé : [Titre à remplacer]</div>
+            </div>
+
+            <!-- CARTE PHOTO 3 -->
+            <div class="gallery-item">
+                <img src="https://placehold.co/600x400/34495e/ffffff?text=EXPLOIT+3" alt="Description de l'exploit 3">
+                <div class="caption">Réalisation Récente : [Titre à remplacer]</div>
+            </div>
         </div>
     </section>
 
-    <!-- 4. Section À Propos -->
-    <section id="apropos" class="about">
-        <h2>À Propos de Moi</h2>
-        <p>C'est ici que vous décrirez vos compétences, votre formation et votre expérience. Remplacez ce texte par votre biographie.</p>
-        
-        <h3>Compétences</h3>
-        <ul>
-            <li>HTML5 & CSS3</li>
-            <li>JavaScript</li>
-            <li>[Ajouter vos autres compétences]</li>
-        </ul>
+    <!-- 4. Section Vidéothèque -->
+    <section id="videos" class="videotheque">
+        <h2>Vidéothèque : Le Parcours en Mouvement</h2>
+        <p>Regardez nos moments forts et nos reportages en vidéo. (N'oubliez pas de remplacer 'YOUR_YOUTUBE_ID' dans le code par l'identifiant de vos vidéos !)</p>
+
+        <div class="video-grid">
+            <!-- VIDÉO 1 (Intégration YouTube) -->
+            <div class="video-item">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_YOUTUBE_ID" title="Vidéo 1 - Titre" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="caption">Vidéo 1 : [Titre à remplacer]</div>
+            </div>
+
+            <!-- VIDÉO 2 (Intégration YouTube) -->
+            <div class="video-item">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_YOUTUBE_ID" title="Vidéo 2 - Titre" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="caption">Vidéo 2 : [Titre à remplacer]</div>
+            </div>
+        </div>
     </section>
 
     <!-- 5. Section Contact -->
     <section id="contact" class="contact">
-        <h2>Contactez-moi</h2>
-        <p>Vous pouvez me joindre par email : votre.email@exemple.com</p>
-        <!-- Vous pouvez ajouter un formulaire de contact si nécessaire -->
+        <h2>Contact & Informations</h2>
+        <p>Pour toute collaboration ou information supplémentaire concernant *societe-l-v-dionysienne-mc*, veuillez nous contacter :</p>
+        
+        <!-- Informations de contact -->
+        <p><i class="fas fa-envelope"></i> Email : <a href="mailto:mailprevis@gmail.com" class="contact-link">mailprevis@gmail.com</a></p>
+        <p><i class="fas fa-phone-alt"></i> Téléphone : <a href="tel:+2693246465" class="contact-link">+269 32 46 465</a></p>
+        <p><i class="fas fa-map-marker-alt"></i> Siège Principal (Google Maps) : <a href="https://share.google/E1piHgfjGR4JYri69" target="_blank" class="contact-link">Voir sur la carte</a></p>
+
+        <!-- Liens vers les réseaux sociaux -->
+        <div class="social-links" style="margin-top: 30px;">
+            <h3>Suivez-nous :</h3>
+            <!-- WhatsApp -->
+            <a href="https://wa.me/2693246465" target="_blank" title="WhatsApp" class="social-icon" style="color: #25D366;"><i class="fab fa-whatsapp"></i></a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/la_villa_dyonisienne?igsh=cnZzN3MwNGcxOThm" target="_blank" title="Instagram" class="social-icon" style="color: #E4405F;"><i class="fab fa-instagram"></i></a>
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/share/1FcL1xJvfv/" target="_blank" title="Facebook" class="social-icon" style="color: #1877F2;"><i class="fab fa-facebook"></i></a>
+            <!-- X/Threads -->
+            <a href="https://www.threads.com/@la_villa_dyonisienne" target="_blank" title="Threads / X" class="social-icon" style="color: var(--couleur-texte);"><i class="fab fa-threads"></i></a>
+        </div>
     </section>
 
     <!-- 6. Pied de page -->
     <footer class="footer">
-        <p>&copy; 2025 Mon Portfolio Web. Tous droits réservés.</p>
+        <p>&copy; 2025 SOCIETE L V DIONYSIENNE MC. Tous droits réservés.</p>
     </footer>
 
 </body>
