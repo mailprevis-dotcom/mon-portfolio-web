@@ -14,7 +14,7 @@
         :root {
             /* Couleurs du thème sombre "Luxe Tech" */
             --couleur-principale: #FFD700; /* Or Métallique pour les titres et accents */
-            --couleur-accent-secondaire: #00FF7F; /* Vert Électrique (Néon) pour les hovers et les bordures dynamiques */
+            --couleur-accent-secondaire: #00FF7F; /* Vert Électrique (Néon) pour les ombres dynamiques et les bordures */
             --couleur-fond-principal: #1f2a38; /* Gris Bleu Foncé (Section Contact) */
             --couleur-fond-secondaire: #2c3e50; /* Gris Bleu Foncé pour l'entête */
             --couleur-texte: #ecf0f1; /* Blanc cassé */
@@ -57,13 +57,11 @@
             list-style: none; 
             text-align: center; 
             margin-top: 15px; 
-            /* REVISION: Utilisation de Flexbox pour une navigation plus robuste et centrée */
             display: flex;
             justify-content: center;
             padding: 0 10px;
         }
         .header nav ul li { 
-            /* Reste l'espacement entre les liens */
             margin: 0 15px; 
         }
         .header nav ul li a { 
@@ -74,7 +72,7 @@
             transition: color 0.3s; 
             border-radius: 5px; 
         }
-        /* Hover: Vert Électrique */
+        /* Hover: Vert Électrique pour les liens de navigation */
         .header nav ul li a:hover { 
             color: var(--couleur-accent-secondaire); 
         }
@@ -189,25 +187,37 @@
             display: flex; 
             justify-content: center; 
             gap: 30px; 
-            /* REVISION: Autoriser le wrap pour une meilleure gestion sur les petits écrans */
             flex-wrap: wrap; 
         }
         .social-hero-links a { 
             font-size: 3rem; 
-            transition: transform 0.2s, color 0.2s; 
+            transition: transform 0.2s, text-shadow 0.2s; /* Changement ici: transition sur l'ombre */
+            /* Initialisation des couleurs spécifiques ci-dessous */
         }
         
-        /* Couleurs officielles des icônes (inchangées pour la reconnaissance) */
-        .social-hero-links a[title="WhatsApp"] { color: #25D366; }
-        .social-hero-links a[title="Instagram"] { color: #E4405F; }
-        .social-hero-links a[title="Facebook"] { color: #1877F2; }
-        .social-hero-links a[title="Threads"] { color: var(--couleur-texte); }
-        .social-hero-links a[title="X (Twitter)"] { color: #ffffff; }
+        /* COULEURS ORIGINALES DES ICONES */
+        .social-hero-links a[title="WhatsApp"], 
+        .social-links a[title="WhatsApp"] { color: #25D366; } /* Vert WhatsApp */
+        
+        .social-hero-links a[title="Instagram"], 
+        .social-links a[title="Instagram"] { color: #E4405F; } /* Rose/Rouge Instagram */
+        
+        .social-hero-links a[title="Facebook"], 
+        .social-links a[title="Facebook"] { color: #1877F2; } /* Bleu Facebook */
+        
+        .social-hero-links a[title="Threads"], 
+        .social-links a[title="Threads"] { color: var(--couleur-texte); } /* Blanc/Gris clair pour Threads/X si sur fond sombre */
+        
+        .social-hero-links a[title="X (Twitter)"],
+        .social-links a[title="X (Twitter)"] { color: #ffffff; } /* Blanc pour X/Twitter */
 
-        /* Hover: Vert Électrique */
-        .social-hero-links a:hover { 
+        /* HOVER: Maintien de la couleur originale de l'icône, mais ajout d'une ombre Vert Électrique */
+        .social-hero-links a:hover,
+        .social-links a:hover { 
             transform: scale(1.2); 
-            color: var(--couleur-accent-secondaire) !important; 
+            /* Ajout d'une ombre néon/glow Vert Électrique */
+            text-shadow: 0 0 10px var(--couleur-accent-secondaire);
+            /* !important est retiré car la couleur est gérée par les sélecteurs spécifiques ci-dessus */
         }
         
         /* Bouton CTA */
@@ -254,23 +264,16 @@
         /* Liens Sociaux Footer */
         .social-links { 
             margin-top: 30px; 
-            /* REVISION: Utilisation de Flexbox pour une disposition centrée et fiable */
             display: flex;
             justify-content: center;
-            gap: 15px; /* Petit espace entre les icônes */
-            flex-wrap: wrap; /* Assurer qu'ils s'enroulent sur mobile */
+            gap: 15px; 
+            flex-wrap: wrap; 
         }
         .social-links h3 { margin-bottom: 15px; color: var(--couleur-principale); }
         .social-links a { 
             font-size: 1.8rem; 
-            transition: transform 0.2s, color 0.2s;
+            transition: transform 0.2s, text-shadow 0.2s; /* Changement ici: transition sur l'ombre */
             display: inline-block;
-        }
-
-        /* Hover: Vert Électrique */
-        .social-links a:hover {
-            transform: translateY(-3px);
-            color: var(--couleur-accent-secondaire) !important;
         }
 
         /* Footer */
