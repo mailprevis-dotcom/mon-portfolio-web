@@ -103,8 +103,9 @@
             min-height: 90vh;
             
             /* Image de fond avec superposition (Overlay) pour la lisibilité */
+            /* PLACEHOLDER IMAGE HERO */
             background-image: linear-gradient(rgba(31, 42, 56, 0.85), rgba(31, 42, 56, 0.85)), 
-                             url('1000031758.jpg');
+                             url('[NOM_DU_FICHIER_IMAGE_HERO]'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -117,7 +118,7 @@
             max-width: 900px;
         }
         
-        /* Amélioration : Mieux faire ressortir le titre du Hero */
+        /* Mieux faire ressortir le titre du Hero */
         .hero-content h2 {
             font-size: 3.5rem; 
             margin-bottom: 20px;
@@ -258,7 +259,7 @@
             margin: 15px 0;
         }
         
-        /* Amélioration : Colorer les icônes de contact */
+        /* Colorer les icônes de contact */
         .contact p i {
             color: var(--couleur-principale); 
             margin-right: 10px;
@@ -339,7 +340,7 @@
 
     <header class="header">
         <div style="text-align: center; margin-bottom: 10px;">
-            <img src="1000031766.png" alt="Logo de SOCIETE L V DIONYSIENNE MC" style="max-height: 80px; width: auto; border-radius: 8px; box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);">
+            <img src="[NOM_DU_FICHIER_LOGO]" alt="Logo de SOCIETE L V DIONYSIENNE MC" style="max-height: 80px; width: auto; border-radius: 8px; box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);">
         </div>
         <h1>SOCIETE L V DIONYSIENNE MC</h1>
         <nav>
@@ -378,36 +379,36 @@
 
     <section id="photos" class="gallery">
         <h2>Galerie Photo de Nos Réalisations</h2>
-        <p>Sélection des clichés les plus mémorables de notre histoire. (N'oubliez pas de remplacer les sources d'images !)</p>
+        <p>Sélection des clichés les plus mémorables de notre histoire. (N'oubliez pas de remplacer les sources d'images et les légendes !)</p>
 
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="89758a5d-fac2-4622-b42b-94a2c3c12fba" alt="Exploit Mémorable 1">
+                <img src="[FICHIER_PHOTO_1]" alt="Exploit Mémorable 1">
                 <div class="caption">Exploit Mémorable : Le début de l'aventure</div>
             </div>
             
             <div class="gallery-item">
-                <img src="3b89155b-b4ed-4b25-a52d-69900cb789e3" alt="Étape Clé 2">
+                <img src="[FICHIER_PHOTO_2]" alt="Étape Clé 2">
                 <div class="caption">Étape Clé : Progression et succès</div>
             </div>
 
             <div class="gallery-item">
-                <img src="25c8e366-7174-4fa2-9479-5d14f9a0ad3c" alt="Réalisation Récente 3">
+                <img src="[FICHIER_PHOTO_3]" alt="Réalisation Récente 3">
                 <div class="caption">Réalisation Récente : Un travail d'équipe payant</div>
             </div>
 
             <div class="gallery-item">
-                <img src="d6cc7f13-9efa-48cb-9cfc-b951bee0055f" alt="Réalisation Récente 4">
+                <img src="[FICHIER_PHOTO_4]" alt="Réalisation Récente 4">
                 <div class="caption">Réalisation Récente : Un projet réussi</div>
             </div>
 
             <div class="gallery-item">
-                <img src="09112c57-ee3f-47c9-b10e-985507e65e22" alt="Réalisation Récente 5">
+                <img src="[FICHIER_PHOTO_5]" alt="Réalisation Récente 5">
                 <div class="caption">Réalisation Récente : Le public est au rendez-vous</div>
             </div>
 
             <div class="gallery-item">
-                <img src="3f6f9a34-1fd4-4bc1-b931-a410b4bb33f1" alt="Réalisation Récente 6">
+                <img src="[FICHIER_PHOTO_6]" alt="Réalisation Récente 6">
                 <div class="caption">Réalisation Récente : La célébration du succès</div>
             </div>
         </div>
@@ -415,44 +416,44 @@
 
     <section id="videos" class="videotheque">
         <h2>Vidéothèque : Le Parcours en Mouvement</h2>
-        <p>Regardez nos moments forts et nos reportages en vidéo. **N'oubliez pas de remplacer 'DEMO_YOUTUBE_ID' par les identifiants de vos propres vidéos !**</p>
+        <p>Regardez nos moments forts et nos reportages en vidéo. **N'oubliez pas de remplacer les ID et les titres des vidéos !**</p>
 
         <div class="video-grid">
             <div class="video-item">
                 <iframe width="560" height="315" 
-                    src="https://www.youtube.com/embed/DEMO_YOUTUBE_ID" 
+                    src="https://www.youtube.com/embed/[ID_YOUTUBE_VIDEO_1]" 
                     title="Vidéo 1 - Moment Fort de l'Année" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen
                     loading="lazy">
                 </iframe>
-                <div class="caption">Vidéo 1 : Moment Fort de l'Année</div>
+                <div class="caption">Vidéo 1 : [Titre de la vidéo 1]</div>
             </div>
 
             <div class="video-item">
                 <iframe width="560" height="315" 
-                    src="https://www.youtube.com/embed/DEMO_YOUTUBE_ID" 
+                    src="https://www.youtube.com/embed/[ID_YOUTUBE_VIDEO_2]" 
                     title="Vidéo 2 - Coulisses et Préparation" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen
                     loading="lazy">
                 </iframe>
-                <div class="caption">Vidéo 2 : Coulisses et Préparation</div>
+                <div class="caption">Vidéo 2 : [Titre de la vidéo 2]</div>
             </div>
         </div>
         
-        <p class="note">N'oubliez pas de remplacer **DEMO_YOUTUBE_ID** dans le code par les vrais identifiants de vos vidéos !</p>
+        <p class="note">Veuillez remplacer **[ID_YOUTUBE_VIDEO_1]** et **[ID_YOUTUBE_VIDEO_2]** par les vrais identifiants (la série de lettres/chiffres) de vos vidéos YouTube.</p>
     </section>
 
     <section id="contact" class="contact">
         <h2>Contact & Informations</h2>
         <p>Pour toute collaboration ou information supplémentaire concernant **societe-l-v-dionysienne-mc**, veuillez nous contacter :</p>
         
-        <p><i class="fas fa-envelope"></i> Email : <a href="mailto:mailprevis@gmail.com" class="contact-link">mailprevis@gmail.com</a></p>
+        <p><i class="fas fa-envelope"></i> Email : <a href="mailto:[VOTRE_EMAIL]" class="contact-link">[VOTRE_EMAIL]</a></p>
         <p><i class="fas fa-phone-alt"></i> Téléphone : <a href="tel:+2693246465" class="contact-link">+269 32 46 465</a></p>
-        <p><i class="fas fa-map-marker-alt"></i> Siège Principal (Google Maps) : <a href="https://share.google/E1piHgfjGR4JYri69" target="_blank" class="contact-link">Voir sur la carte</a></p>
+        <p><i class="fas fa-map-marker-alt"></i> Siège Principal (Google Maps) : <a href="[LIEN_GOOGLE_MAPS]" target="_blank" class="contact-link">Voir sur la carte</a></p>
 
         <div class="social-links" style="margin-top: 30px;">
             <h3>Suivez-nous :</h3>
