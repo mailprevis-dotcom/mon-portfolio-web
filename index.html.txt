@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Site Web Professionnel - Portfolio (V3)</title>
+    
+    <!-- Style CSS intégré directement pour éviter les problèmes de CDN/connexion -->
+    <style>
+        /* Configuration de base */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Gris clair */
+            color: #333; /* Texte gris foncé */
+        }
+        
+        /* En-tête (Header) */
+        header {
+            background-color: #007bff; /* Bleu vif */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #cceeff; /* Bleu très clair au survol */
+        }
+        
+        /* Sections */
+        section {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        section h2 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        /* Projets */
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .project-grid {
+                grid-template-columns: 1fr 1fr; /* 2 colonnes sur les écrans plus grands */
+            }
+        }
+        
+        .project-item {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 6px;
+            transition: transform 0.3s;
+        }
+        
+        .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-item h3 {
+            color: #333;
+            margin-top: 0;
+        }
+        
+        /* Formulaire de Contact */
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        form input[type="text"],
+        form input[type="email"],
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Inclure le padding dans la largeur */
+        }
+        
+        form button {
+            background-color: #28a745; /* Vert pour le bouton */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1em;
+            display: block;
+            width: 100%;
+        }
+        
+        form button:hover {
+            background-color: #218838;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* Pied de page (Footer) */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- En-tête (Header) -->
+    <header>
+        <div class="text-center">
+            <h1>Mon Site Pro (V3 - Style Interne)</h1>
+            <nav style="margin-top: 10px;">
+                <a href="#about">À Propos</a>
+                <a href="#projects">Projets</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section "À Propos" (About Me) -->
+    <section id="about">
+        <h2 class="text-center">À Propos de Moi</h2>
+        <div class="text-center">
+            <!-- Image de profil ou icône de placeholder -->
+            <svg xmlns="http://www.w3.org/2000/svg" style="height: 50px; width: 50px; margin: 15px auto; color: #555;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 6v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2m18 0a2 2 0 00-2-2H5a2 2 0 00-2 2"/>
+            </svg>
+            <p style="max-width: 600px; margin: 0 auto; line-height: 1.6;">
+                Bienvenue sur la version 3 de mon portfolio. Je suis [Votre Nom], passionné par la création de solutions numériques élégantes et fonctionnelles. J'ai utilisé cette page pour tester les déploiements web, mais elle est maintenant prête à présenter mon travail.
+            </p>
+        </div>
+    </section>
+
+    <!-- Section Projets (Projects) -->
+    <section id="projects">
+        <h2 class="text-center">Mes Projets Récents</h2>
+        <div class="project-grid">
+            
+            <!-- Projet 1 -->
+            <div class="project-item">
+                <h3>Projet A : [Nom du Projet]</h3>
+                <p>
+                    Description : Site e-commerce fictif créé pour démontrer des compétences en design réactif et en gestion de contenu.
+                </p>
+                <span style="display: inline-block; background-color: #007bff; color: white; padding: 5px 10px; border-radius: 3px; font-size: 0.8em; margin-top: 10px;">Web Design</span>
+            </div>
+
+            <!-- Projet 2 -->
+            <div class="project-item">
+                <h3>Projet B : [Nom du Projet]</h3>
+                <p>
+                    Description : Outil de calcul en ligne pour [Domaine Spécifique]. Axé sur la performance et l'accessibilité.
+                </p>
+                <span style="display: inline-block; background-color: #007bff; color: white; padding: 5px 10px; border-radius: 3px; font-size: 0.8em; margin-top: 10px;">Développement JS</span>
+            </div>
+            
+        </div>
+        
+        <div class="text-center" style="margin-top: 30px;">
+            <a href="#contact" style="background-color: #007bff; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: background-color 0.3s;">
+                Voir plus et discuter
+            </a>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact">
+        <h2 class="text-center">Me Contacter</h2>
+
+        <!-- FORMULAIRE DE CONTACT (Action Formspree intégrée) -->
+        <form id="contact-form" action="https://formspree.io/f/yqdknoov" method="POST" style="max-width: 500px; margin: 0 auto;">
+            
+            <div>
+                <label for="name">Nom Complet</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            
+            <div>
+                <label for="email">Adresse Email</label>
+                <input type="email" name="_replyto" id="email" required>
+            </div>
+            
+            <div>
+                <label for="message">Message</label>
+                <textarea name="message" id="message" rows="4" required></textarea>
+            </div>
+
+            <div class="text-center">
+                <button type="submit">
+                    Envoyer le Message
+                </button>
+            </div>
+            
+            <p id="form-status" style="text-align: center; margin-top: 15px; font-weight: bold; display: none;"></p>
+            
+        </form>
+        <!-- FIN FORMULAIRE -->
+        
+    </section>
+
+    <!-- Pied de Page (Footer) -->
+    <footer>
+        <p>&copy; 2025 Mon Site Pro. Tous droits réservés. (V3)</p>
+        <p style="margin-top: 5px;">Déployé avec succès sur Netlify.</p>
+    </footer>
+
+    <script>
+        // Ce script gère l'affichage du statut après l'envoi du formulaire Formspree
+        const form = document.getElementById('contact-form');
+        const status = document.getElementById('form-status');
+
+        form.addEventListener("submit", async function(event) {
+            event.preventDefault();
+            const data = new FormData(event.target);
+            
+            try {
+                const response = await fetch(event.target.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    status.textContent = "Merci ! Votre message a été envoyé avec succès.";
+                    status.style.color = "green";
+                    form.reset();
+                } else {
+                    status.textContent = "Une erreur s'est produite lors de l'envoi du message.";
+                    status.style.color = "red";
+                }
+                status.style.display = "block";
+
+            } catch (error) {
+                console.error('Erreur de soumission du formulaire :', error);
+                status.textContent = "Problème de connexion. Veuillez réessayer.";
+                status.style.color = "red";
+                status.style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>
