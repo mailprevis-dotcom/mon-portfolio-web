@@ -6,213 +6,283 @@
     <title>LVD Global Investissement</title>
     <style>
         :root {
-            --gold: #FFD700;
-            --dark-blue: #0a192f;
-            --light-blue: #172a45;
-            --white: #e6f1ff;
-            --green-accent: #64ffda;
+            --gold: #D4AF37;
+            --bg-black: #050505;
+            --card-bg: #121212;
+            --text-white: #ffffff;
+            --text-muted: #888888;
             
-            /* Couleurs Réseaux Sociaux */
-            --whatsapp: #25D366;
-            --facebook: #1877F2;
-            --instagram: #E4405F;
-            --tiktok: #000000;
-            --x-twitter: #000000;
-            --google: #4285F4;
+            /* Couleurs Réseaux Sociaux Fixes */
+            --color-whatsapp: #25D366;
+            --color-facebook: #1877F2;
+            --color-instagram: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            --color-tiktok: #000000;
+            --color-x: #000000;
+            --color-google: #4285F4;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 
         body {
-            background-color: var(--dark-blue);
-            color: var(--white);
+            background-color: var(--bg-black);
+            color: var(--text-white);
             line-height: 1.6;
         }
 
         header {
-            background: var(--light-blue);
-            padding: 40px 20px;
+            padding: 60px 20px;
             text-align: center;
-            border-bottom: 3px solid var(--gold);
+            background: linear-gradient(180deg, #111, var(--bg-black));
         }
 
-        /* LOGO CENTRAL */
-        .logo-wrapper {
-            width: 100px;
-            height: 100px;
-            background: #ffffff;
+        .logo-main {
+            width: 120px;
+            height: 120px;
+            background: #fff;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid var(--gold);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .logo-main span {
+            color: #000;
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        /* NAVIGATION SOCIALE COULEURS FIXES */
+        .social-bar {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .icon-box {
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            border: 4px solid var(--gold);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        .logo-text { color: #000; font-weight: 900; font-size: 28px; }
-
-        h1 { font-size: 1.4rem; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; }
-        .tagline { color: var(--green-accent); font-size: 0.85rem; letter-spacing: 3px; font-weight: bold; margin-top: 5px; }
-
-        /* BARRE SOCIALE COLOREE */
-        .social-container {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            padding: 25px 10px;
-            background: rgba(0,0,0,0.2);
-        }
-        .social-box {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
             text-decoration: none;
-            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
-        .social-box:hover { transform: scale(1.1); }
-        .social-box svg { width: 24px; height: 24px; fill: white; }
 
-        /* Styles spécifiques par couleur */
-        .wa { background-color: var(--whatsapp); box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); }
-        .fb { background-color: var(--facebook); box-shadow: 0 4px 10px rgba(24, 119, 242, 0.3); }
-        .ig { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); box-shadow: 0 4px 10px rgba(228, 64, 95, 0.3); }
-        .tk { background-color: var(--tiktok); border: 1px solid #333; }
-        .xt { background-color: var(--x-twitter); border: 1px solid #333; }
-        .gg { background-color: var(--google); box-shadow: 0 4px 10px rgba(66, 133, 244, 0.3); }
+        .icon-box:hover { transform: scale(1.1); }
+        .icon-box svg { width: 26px; height: 26px; fill: white; }
 
-        /* SECTION RÉALISATIONS */
-        section { padding: 50px 15px; max-width: 1200px; margin: 0 auto; text-align: center; }
-        h2 { border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 8px; margin-bottom: 40px; }
+        .wa-bg { background-color: var(--color-whatsapp); }
+        .fb-bg { background-color: var(--color-facebook); }
+        .ig-bg { background: var(--color-instagram); }
+        .tk-bg { background-color: var(--color-tiktok); border: 1px solid #333; }
+        .x-bg { background-color: var(--color-x); border: 1px solid #333; }
+        .gg-bg { background-color: var(--color-google); }
 
-        .portfolio-grid {
+        /* GALERIE */
+        section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.3rem;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .section-title::after {
+            content: ''; display: block; width: 60px; height: 2px; background: var(--gold); margin: 15px auto;
+        }
+
+        .grid-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
         }
-        .media-card {
-            background: var(--light-blue);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
-            position: relative;
-        }
-        .media-card img, .media-card iframe { width: 100%; aspect-ratio: 16/9; display: block; border: none; }
 
-        /* ZONE GESTION */
-        .admin-section {
-            margin-top: 40px;
-            padding: 25px;
-            background: #000;
-            border-radius: 15px;
-            border: 1px dashed #444;
+        .media-item {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #222;
+            position: relative;
+            transition: 0.3s;
         }
+
+        .media-item:hover { border-color: var(--gold); }
+
+        .media-item img, .media-item iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
+            display: block;
+            object-fit: cover;
+            border: none;
+        }
+
+        .empty-status {
+            grid-column: 1/-1;
+            text-align: center;
+            padding: 100px 20px;
+            color: #555;
+            font-style: italic;
+        }
+
+        /* ZONE D'ADMINISTRATION */
+        .admin-box {
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 450px;
+            margin: 40px auto;
+        }
+
         input, select {
             width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 6px;
+            padding: 14px;
+            margin-bottom: 15px;
+            background: #000;
             border: 1px solid #333;
-            background: #111;
-            color: white;
+            color: #fff;
+            border-radius: 5px;
         }
+
         .btn-gold {
             background: var(--gold);
             color: #000;
             border: none;
-            padding: 12px;
+            padding: 15px;
             width: 100%;
-            font-weight: bold;
-            border-radius: 6px;
+            font-weight: 800;
             cursor: pointer;
+            border-radius: 5px;
             text-transform: uppercase;
         }
-        .btn-delete {
+
+        .btn-del {
             position: absolute;
             top: 10px;
             right: 10px;
-            background: #ff4757;
+            background: #ff3b30;
             color: white;
             border: none;
-            padding: 4px 10px;
-            border-radius: 4px;
+            padding: 8px 12px;
+            border-radius: 5px;
             cursor: pointer;
+            font-weight: bold;
+            z-index: 10;
         }
 
         .hidden { display: none; }
-        footer { padding: 50px; text-align: center; font-size: 0.8rem; opacity: 0.5; }
-        .secret-trigger { cursor: pointer; color: transparent; user-select: none; }
+
+        footer {
+            padding: 80px 20px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #333;
+            border-top: 1px solid #111;
+        }
+
+        /* LE BOUTON POUR TOI */
+        .btn-config {
+            cursor: pointer;
+            color: #222; /* Très sombre pour être discret */
+            font-weight: bold;
+            text-decoration: underline;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        .btn-config:hover { color: var(--gold); }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo-wrapper">
-        <div class="logo-text">LVD</div>
+    <div class="logo-main">
+        <span>LVD</span>
     </div>
     <h1>LA VILLA DIONYSIENNE MC</h1>
     <p class="tagline">GLOBAL INVESTISSEMENT</p>
 </header>
 
-<div class="social-container">
-    <!-- WhatsApp -->
-    <a href="https://wa.me/2693246465" class="social-box wa" title="WhatsApp">
+<div class="social-bar">
+    <a href="https://wa.me/2693246465" class="icon-box wa-bg" title="WhatsApp">
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.396.015 12.03c0 2.123.548 4.197 1.591 6.027L0 24l6.135-1.61a11.802 11.802 0 005.911 1.586h.005c6.637 0 12.032-5.396 12.036-12.03a11.817 11.817 0 00-3.417-8.435z"/></svg>
     </a>
-    <!-- Facebook -->
-    <a href="https://facebook.com/lavilladionysienne" class="social-box fb" title="Facebook">
+    <a href="https://facebook.com" class="icon-box fb-bg">
         <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
     </a>
-    <!-- Instagram -->
-    <a href="https://instagram.com/la_villa_dionysienne" class="social-box ig" title="Instagram">
+    <a href="https://instagram.com" class="icon-box ig-bg">
         <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12s.014 3.667.072 4.947c.2 4.353 2.612 6.773 6.973 6.973 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c4.351-.2 6.77-2.618 6.97-6.973.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.2-4.353-2.612-6.77-6.973-6.973C15.667.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
     </a>
-    <!-- TikTok -->
-    <a href="https://tiktok.com/@la_villa_dionysienne" class="social-box tk" title="TikTok">
+    <a href="https://tiktok.com" class="icon-box tk-bg">
         <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.9-.32-1.98-.23-2.81.31-.75.42-1.24 1.25-1.31 2.1-.01.56.06 1.12.33 1.62.4.81 1.22 1.44 2.13 1.61.91.17 1.89-.1 2.59-.74.7-.61 1.05-1.59 1.05-2.51V.02z"/></svg>
     </a>
-    <!-- X -->
-    <a href="https://x.com" class="social-box xt" title="X (Twitter)">
+    <a href="https://x.com" class="icon-box x-bg">
         <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
     </a>
-    <!-- Google -->
-    <a href="https://google.com" class="social-box gg" title="Google">
+    <a href="https://google.com" class="icon-box gg-bg">
         <svg viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg>
     </a>
 </div>
 
 <section>
-    <h2>NOS RÉALISATIONS</h2>
-    <div id="gallery-grid" class="portfolio-grid">
-        <p style="grid-column: 1/-1; opacity:0.6; padding: 40px;">Découvrez nos projets en cours de réalisation...</p>
+    <h2 class="section-title">RÉALISATIONS</h2>
+    <div id="gallery-container" class="grid-gallery">
+        <!-- Rempli par JS -->
     </div>
 
-    <!-- ZONE SECRÈTE DE GESTION -->
-    <div id="admin-panel" class="admin-section hidden">
-        <div id="login-box">
-            <h3>ACCÈS PRIVÉ</h3>
-            <input type="password" id="pass-field" placeholder="Code de sécurité">
-            <button class="btn-gold" onclick="tryLogin()">Valider</button>
-        </div>
-        <div id="manage-box" class="hidden">
-            <h3>PUBLIER UN CONTENU</h3>
-            <select id="pub-type">
-                <option value="image">Image (URL)</option>
-                <option value="video">Vidéo (Youtube)</option>
-            </select>
-            <input type="text" id="pub-url" placeholder="Lien vers le média">
-            <button class="btn-gold" onclick="doUpload()">Mettre à jour la galerie</button>
+    <!-- PANNEAU ADMIN MASQUÉ -->
+    <div id="admin-panel" class="hidden">
+        <div class="admin-box">
+            <div id="auth-section">
+                <h3>VÉRIFICATION</h3>
+                <input type="password" id="pass-code" placeholder="Entrez le code">
+                <button class="btn-gold" onclick="checkPass()">Accéder</button>
+            </div>
+            <div id="manage-section" class="hidden">
+                <h3>AJOUTER UN MÉDIA</h3>
+                <select id="m-type">
+                    <option value="image">Photo (Lien URL)</option>
+                    <option value="video">Vidéo (Lien YouTube)</option>
+                </select>
+                <input type="text" id="m-url" placeholder="Collez l'URL ici">
+                <button class="btn-gold" onclick="pushMedia()">Mettre en ligne</button>
+            </div>
         </div>
     </div>
 </section>
 
 <footer>
-    <p>&copy; 2025 LVD Global Investissement. Tous droits réservés.</p>
-    <div class="secret-trigger" onclick="toggleAdmin()">Config</div>
+    <p>&copy; 2025 LVD Global Investissement. Confidentialité assurée.</p>
+    <!-- CE BOUTON OUVRE LE PANNEAU -->
+    <div class="btn-config" onclick="openAdmin()">Configuration</div>
 </footer>
 
 <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app-compat.js"></script>
@@ -220,71 +290,69 @@
 <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-auth-compat.js"></script>
 
 <script>
-    const config = JSON.parse(__firebase_config);
-    firebase.initializeApp(config);
+    const fbCfg = JSON.parse(__firebase_config);
+    firebase.initializeApp(fbCfg);
     const db = firebase.firestore();
     const appId = typeof __app_id !== 'undefined' ? __app_id : 'lvd-v5-final';
-    const collection = db.collection('artifacts').doc(appId).collection('public').doc('data').collection('gallery');
+    const store = db.collection('artifacts').doc(appId).collection('public').doc('data').collection('gallery');
 
-    let adminActive = false;
+    let isUnlocked = false;
 
     firebase.auth().signInAnonymously();
 
-    function toggleAdmin() {
+    function openAdmin() {
         document.getElementById('admin-panel').classList.toggle('hidden');
     }
 
-    function tryLogin() {
-        if(document.getElementById('pass-field').value === "1234") {
-            adminActive = true;
-            document.getElementById('login-box').classList.add('hidden');
-            document.getElementById('manage-box').classList.remove('hidden');
-            renderGallery();
-        } else { alert("Accès refusé"); }
+    function checkPass() {
+        if(document.getElementById('pass-code').value === "1234") {
+            isUnlocked = true;
+            document.getElementById('auth-section').classList.add('hidden');
+            document.getElementById('manage-section').classList.remove('hidden');
+            render();
+        } else { alert("Code refusé."); }
     }
 
-    function renderGallery() {
-        collection.orderBy('ts', 'desc').onSnapshot(snap => {
-            const grid = document.getElementById('gallery-grid');
+    function render() {
+        store.orderBy('ts', 'desc').onSnapshot(snap => {
+            const grid = document.getElementById('gallery-container');
             if(snap.empty) {
-                grid.innerHTML = '<p style="grid-column: 1/-1; opacity:0.6; padding: 40px;">Bienvenue. Utilisez le panneau de gestion pour ajouter vos photos.</p>';
+                grid.innerHTML = '<div class="empty-status">Aucun projet pour le moment. Utilisez le panneau Configuration pour en ajouter.</div>';
                 return;
             }
             grid.innerHTML = "";
             snap.forEach(doc => {
                 const item = doc.data();
                 const card = document.createElement('div');
-                card.className = 'media-card';
+                card.className = 'media-item';
                 
                 if(item.type === 'video') {
-                    let id = item.url.includes('v=') ? item.url.split('v=')[1].split('&')[0] : item.url.split('/').pop();
+                    const id = item.url.includes('v=') ? item.url.split('v=')[1].split('&')[0] : item.url.split('/').pop();
                     card.innerHTML = <iframe src="https://www.youtube.com/embed/${id}" allowfullscreen></iframe>;
                 } else {
-                    card.innerHTML = <img src="${item.url}" onerror="this.src='https://placehold.co/600x400/172a45/FFD700?text=Image+Non+Trouvée'">;
+                    card.innerHTML = <img src="${item.url}" onerror="this.src='https://placehold.co/800x450/111/D4AF37?text=Projet+LVD'">;
                 }
 
-                if(adminActive) {
-                    const del = document.createElement('button');
-                    del.className = 'btn-delete';
-                    del.innerText = 'Supprimer';
-                    del.onclick = () => { if(confirm('Supprimer ce projet ?')) doc.ref.delete(); };
-                    card.appendChild(del);
+                if(isUnlocked) {
+                    const d = document.createElement('button');
+                    d.className = 'btn-del'; d.innerText = 'Supprimer';
+                    d.onclick = () => { if(confirm('Supprimer ?')) doc.ref.delete(); };
+                    card.appendChild(d);
                 }
                 grid.appendChild(card);
             });
         });
     }
 
-    async function doUpload() {
-        const url = document.getElementById('pub-url').value;
-        const type = document.getElementById('pub-type').value;
+    async function pushMedia() {
+        const url = document.getElementById('m-url').value;
+        const type = document.getElementById('m-type').value;
         if(!url) return;
-        await collection.add({ url, type, ts: firebase.firestore.FieldValue.serverTimestamp() });
-        document.getElementById('pub-url').value = "";
+        await store.add({ url, type, ts: firebase.firestore.FieldValue.serverTimestamp() });
+        document.getElementById('m-url').value = "";
     }
 
-    renderGallery();
+    render();
 </script>
-
 </body>
 </html>
