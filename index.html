@@ -11,94 +11,99 @@
     <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-auth-compat.js"></script>
     
     <style>
-        :root { --or: #FFD700; --noir: #05080a; }
-        body { background: var(--noir); color: white; font-family: sans-serif; margin: 0; text-align: center; }
+        :root { --or: #FFD700; --noir: #05080a; --gris: #111827; }
+        body { background: var(--noir); color: white; font-family: 'Segoe UI', sans-serif; margin: 0; text-align: center; }
         
-        header { padding: 30px 10px; border-bottom: 1px solid #1e293b; }
-        .logo-txt { width: 70px; height: 70px; background: white; color: black; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-weight: bold; border: 2px solid var(--or); }
-        h1 { color: var(--or); font-size: 1.1rem; margin: 0; }
+        header { padding: 40px 15px; border-bottom: 1px solid #1e293b; }
+        .logo-cercle { width: 75px; height: 75px; background: white; color: black; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-weight: bold; border: 3px solid var(--or); font-size: 22px; }
+        h1 { color: var(--or); font-size: 1.3rem; margin: 0; letter-spacing: 2px; text-transform: uppercase; }
 
-        /* RÉSEAUX SOCIAUX - STYLE SIMPLE ET ROBUSTE */
-        .social-container { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 20px; }
-        .social-card { background: #111827; padding: 10px; border-radius: 8px; text-decoration: none; color: white; width: 75px; border: 1px solid #1e293b; }
-        .social-card span { font-size: 8px; display: block; margin-top: 5px; font-weight: bold; }
-        .social-card img { width: 25px; height: 25px; }
+        /* RÉSEAUX SOCIAUX */
+        .social-grid { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; padding: 25px; }
+        .social-item { background: var(--gris); padding: 12px 8px; border-radius: 10px; text-decoration: none; color: white; width: 70px; border: 1px solid #1e293b; transition: 0.3s; }
+        .social-item span { font-size: 8px; display: block; margin-top: 8px; font-weight: bold; color: #94a3b8; }
+        .social-item img { width: 28px; height: 28px; }
 
         /* GALERIE */
-        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; padding: 15px; }
-        .card { background: #111827; border-radius: 10px; overflow: hidden; border: 1px solid #1e293b; position: relative; }
-        .card img, .card iframe { width: 100%; aspect-ratio: 16/9; display: block; border: none; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding: 20px; }
+        .card { background: var(--gris); border-radius: 12px; overflow: hidden; border: 1px solid #1e293b; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        .card img, .card iframe { width: 100%; aspect-ratio: 16/9; display: block; border: none; object-fit: cover; }
 
-        /* ADMIN */
-        .admin-area { padding: 40px 20px; background: #0a0f1a; border-top: 1px solid #333; margin-top: 50px; }
-        .input-box { width: 100%; max-width: 300px; padding: 12px; margin: 5px 0; border-radius: 5px; border: 1px solid #444; background: #000; color: white; box-sizing: border-box; }
-        .btn { background: var(--or); color: black; border: none; padding: 12px; border-radius: 5px; font-weight: bold; cursor: pointer; width: 100%; max-width: 300px; }
+        /* ZONE ADMIN - DÉBLOCAGE AUTO */
+        .admin-zone { padding: 50px 20px; background: #080c14; border-top: 2px solid var(--or); margin-top: 60px; }
+        .input-text { width: 100%; max-width: 320px; padding: 15px; margin: 10px 0; border-radius: 8px; border: 1px solid #334155; background: #000; color: white; font-size: 16px; text-align: center; }
+        .btn-send { background: var(--or); color: black; border: none; padding: 15px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; max-width: 320px; font-size: 16px; text-transform: uppercase; }
+        
         .hidden { display: none; }
-        .del-btn { position: absolute; top: 10px; right: 10px; background: red; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
+        .delete-btn { position: absolute; top: 10px; right: 10px; background: #ef4444; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 12px; }
+        
+        .status-msg { font-size: 12px; margin-top: 10px; color: #64748b; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-txt">LVD</div>
+        <div class="logo-cercle">LVD</div>
         <h1>LA VILLA DIONYSIENNE MC</h1>
-        <p style="font-size: 9px; opacity: 0.5; letter-spacing: 2px;">GLOBAL INVESTISSEMENT</p>
+        <p style="font-size: 10px; opacity: 0.6; letter-spacing: 4px; margin-top: 8px;">GLOBAL INVESTISSEMENT</p>
     </header>
 
-    <!-- LIENS RÉSEAUX SOCIAUX -->
-    <div class="social-container">
-        <a href="https://wa.me/2693246465" class="social-card">
+    <div class="social-grid">
+        <a href="https://wa.me/2693246465" class="social-item">
             <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
             <span>WHATSAPP</span>
         </a>
-        <a href="https://www.instagram.com/la_villa_dionysienne" class="social-card">
+        <a href="https://www.instagram.com/la_villa_dionysienne" class="social-item">
             <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
             <span>INSTAGRAM</span>
         </a>
-        <a href="https://www.facebook.com/share/1FcL1xJvfv/" class="social-card">
+        <a href="https://www.facebook.com/share/1FcL1xJvfv/" class="social-item">
             <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook">
             <span>FACEBOOK</span>
         </a>
-        <a href="https://www.tiktok.com/@la_villa_dionysienne" class="social-card">
+        <a href="https://www.tiktok.com/@la_villa_dionysienne" class="social-item">
             <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok">
             <span>TIKTOK</span>
         </a>
-        <a href="https://x.com/LDyonisienne" class="social-card">
+        <a href="https://x.com/LDyonisienne" class="social-item">
             <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X">
             <span>X</span>
         </a>
-        <a href="https://www.google.com/maps?q=LA+VILLA+DIONYSIENNE+MC" class="social-card">
+        <a href="https://www.google.com/maps?q=LA+VILLA+DIONYSIENNE+MC" class="social-item">
             <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" alt="Carte">
             <span>ADRESSE</span>
         </a>
-        <a href="https://www.google.com/search?q=LA+VILLA+DIONYSIENNE+MC" class="social-card">
+        <a href="https://www.google.com/search?q=LA+VILLA+DIONYSIENNE+MC" class="social-item">
             <img src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="Google">
             <span>GOOGLE</span>
         </a>
     </div>
 
-    <h3>NOS PROJETS</h3>
-    <div id="main-gallery" class="gallery">
-        <p style="opacity:0.2">Chargement des données...</p>
+    <h2 style="font-weight: 300; letter-spacing: 3px; margin: 20px 0;">NOTRE PORTFOLIO</h2>
+    
+    <div id="gallery-display" class="gallery">
+        <p style="opacity:0.3; grid-column: 1/-1;">Chargement des projets...</p>
     </div>
 
     <!-- ZONE DE GESTION -->
-    <div class="admin-area">
-        <div id="login-section">
-            <input type="password" id="pass-val" class="input-box" placeholder="Code (LVD2024)">
-            <button class="btn" onclick="check()">ENTRER</button>
+    <div class="admin-zone">
+        <div id="login-form">
+            <h3 style="color:var(--or)">ESPACE GESTION</h3>
+            <p style="font-size: 12px; margin-bottom: 15px;">Tapez le code secret pour débloquer :</p>
+            <input type="password" id="pass-input" class="input-text" placeholder="Entrez le code ici..." oninput="verifierAuto()">
+            <p id="hint" class="status-msg">En attente du code...</p>
         </div>
 
-        <div id="edit-section" class="hidden">
-            <h4 style="color:var(--or)">MODIFIER LE SITE</h4>
-            <select id="m-type" class="input-box">
-                <option value="img">IMAGE</option>
-                <option value="vid">YOUTUBE</option>
+        <div id="management-form" class="hidden">
+            <h3 style="color:var(--or)">AJOUTER UN CONTENU</h3>
+            <select id="content-type" class="input-text">
+                <option value="img">IMAGE (URL)</option>
+                <option value="vid">YOUTUBE (LIEN)</option>
             </select>
-            <input type="text" id="m-url" class="input-box" placeholder="Collez le lien ici">
-            <button class="btn" onclick="publier()">PUBLIER MAINTENANT</button>
+            <input type="text" id="content-url" class="input-text" placeholder="Collez votre lien ici">
+            <button class="btn-send" onclick="poster()">PUBLIER SUR LE SITE</button>
             <br><br>
-            <button onclick="location.reload()" style="background:none; border:none; color:gray; cursor:pointer;">DÉCONNEXION</button>
+            <button onclick="location.reload()" style="background:none; border:none; color:#64748b; cursor:pointer; font-size:12px; text-decoration:underline;">SE DÉCONNECTER</button>
         </div>
     </div>
 
@@ -107,42 +112,57 @@
         const firebaseConfig = JSON.parse(__firebase_config);
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'lvd-global-v1';
-        const col = db.collection('artifacts').doc(appId).collection('public').doc('data').collection('gallery');
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'lvd-global-final-v1';
+        const colRef = db.collection('artifacts').doc(appId).collection('public').doc('data').collection('gallery');
 
-        let isAuth = false;
+        let isAuthorized = false;
 
         firebase.auth().signInAnonymously();
 
-        function check() {
-            if(document.getElementById('pass-val').value.toUpperCase() === "LVD2024") {
-                isAuth = true;
-                document.getElementById('login-section').classList.add('hidden');
-                document.getElementById('edit-section').classList.remove('hidden');
-                charger();
-            } else {
-                alert("Erreur de code");
+        // VÉRIFICATION AUTOMATIQUE (Pas besoin de bouton)
+        function verifierAuto() {
+            const input = document.getElementById('pass-input').value.toUpperCase();
+            const hint = document.getElementById('hint');
+            
+            if(input === "LVD2024") {
+                isAuthorized = true;
+                document.getElementById('login-form').classList.add('hidden');
+                document.getElementById('management-form').classList.remove('hidden');
+                chargerGalerie(); // Recharger pour afficher les options de suppression
+            } else if (input.length >= 7) {
+                hint.innerText = "Code incorrect, réessayez...";
+                hint.style.color = "#ef4444";
             }
         }
 
-        function charger() {
-            col.orderBy('date', 'desc').onSnapshot(snap => {
-                const gallery = document.getElementById('main-gallery');
+        function chargerGalerie() {
+            colRef.orderBy('date', 'desc').onSnapshot(snap => {
+                const gallery = document.getElementById('gallery-display');
                 gallery.innerHTML = "";
+                
+                if(snap.empty) {
+                    gallery.innerHTML = "<p style='opacity:0.2; grid-column:1/-1;'>Aucun projet affiché pour le moment.</p>";
+                    return;
+                }
+
                 snap.forEach(doc => {
                     const data = doc.data();
                     const card = document.createElement('div');
                     card.className = "card";
+                    
                     if(data.type === 'vid') {
-                        const id = data.url.split('v=')[1] || data.url.split('/').pop();
-                        card.innerHTML = <iframe src="https://www.youtube.com/embed/${id}"></iframe>;
+                        let ytId = "";
+                        if(data.url.includes('v=')) { ytId = data.url.split('v=')[1].split('&')[0]; }
+                        else { ytId = data.url.split('/').pop(); }
+                        card.innerHTML = <iframe src="https://www.youtube.com/embed/${ytId}"></iframe>;
                     } else {
-                        card.innerHTML = <img src="${data.url}">;
+                        card.innerHTML = <img src="${data.url}" onerror="this.src='https://placehold.co/600x400/111827/FFFFFF?text=Lien+image+invalide'">;
                     }
-                    if(isAuth) {
+
+                    if(isAuthorized) {
                         const b = document.createElement('button');
-                        b.className = "del-btn"; b.innerText = "X";
-                        b.onclick = () => { if(confirm("Supprimer ?")) doc.ref.delete(); };
+                        b.className = "delete-btn"; b.innerText = "SUPPRIMER";
+                        b.onclick = () => { if(confirm("Voulez-vous supprimer ce projet ?")) doc.ref.delete(); };
                         card.appendChild(b);
                     }
                     gallery.appendChild(card);
@@ -150,18 +170,25 @@
             });
         }
 
-        async function publier() {
-            const u = document.getElementById('m-url').value;
-            const t = document.getElementById('m-type').value;
-            if(!u) return;
+        async function poster() {
+            const u = document.getElementById('content-url').value.trim();
+            const t = document.getElementById('content-type').value;
+            if(!u) return alert("Veuillez entrer un lien valide.");
+
             try {
-                await col.add({ url: u, type: t, date: firebase.firestore.FieldValue.serverTimestamp() });
-                document.getElementById('m-url').value = "";
-                alert("En ligne !");
-            } catch(e) { alert("Erreur"); }
+                await colRef.add({
+                    url: u,
+                    type: t,
+                    date: firebase.firestore.FieldValue.serverTimestamp()
+                });
+                document.getElementById('content-url').value = "";
+                alert("Projet ajouté avec succès !");
+            } catch(e) {
+                alert("Erreur lors de la publication. Vérifiez votre connexion.");
+            }
         }
 
-        charger();
+        chargerGalerie();
     </script>
 </body>
 </html>
