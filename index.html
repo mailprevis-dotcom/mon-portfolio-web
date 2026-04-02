@@ -23,6 +23,9 @@
             background-color: var(--fond); 
             color: var(--texte);
             overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         header {
@@ -46,68 +49,64 @@
         }
         .logo-box span { color: #000; font-weight: bold; font-size: 24px; }
 
-        h1 { font-size: 1.8rem; color: var(--or); text-transform: uppercase; letter-spacing: 4px; margin-bottom: 5px; }
-        .subtitle { font-size: 0.85rem; opacity: 0.7; letter-spacing: 5px; text-transform: uppercase; }
+        h1 { font-size: 1.5rem; color: var(--or); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 5px; }
+        .subtitle { font-size: 0.8rem; opacity: 0.7; letter-spacing: 4px; text-transform: uppercase; }
 
-        .intro { padding: 40px 10px; text-align: center; max-width: 1000px; margin: 0 auto; }
-        .line { width: 70px; height: 3px; background: var(--vert); margin: 25px auto; }
+        .intro { padding: 40px 10px; text-align: center; max-width: 1000px; margin: 0 auto; flex: 1; }
+        .intro h2 { font-size: 1.4rem; font-weight: 300; margin-bottom: 10px; }
+        .line { width: 60px; height: 3px; background: var(--vert); margin: 20px auto; }
 
-        /* BARRE DE RÉSEAUX SOCIAUX DÉTAILLÉE */
+        /* GRILLE DES RÉSEAUX */
         .social-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-            gap: 15px;
-            margin: 20px 0 50px;
+            grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+            gap: 20px;
+            margin: 30px auto;
             max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            padding: 0 10px;
         }
         .social-link {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease;
         }
         .social-link:hover { transform: translateY(-5px); }
-        .social-link i { font-size: 2rem; margin-bottom: 10px; }
+        .social-link i { font-size: 2.2rem; margin-bottom: 10px; }
         .social-link span { font-size: 10px; text-transform: uppercase; color: #888; font-weight: bold; }
 
-        /* Couleurs et Logos Spécifiques */
+        /* Couleurs */
         .fa-whatsapp { color: #25D366; }
         .fa-instagram { color: #E4405F; }
         .fa-facebook { color: #1877F2; }
         .fa-tiktok { color: #FFFFFF; }
-        .fa-x-twitter { color: #FFFFFF; } /* Nouveau logo X */
-        .fa-map-marker-alt { color: #EA4335; } /* Maps Red */
+        .fa-x-twitter { color: #FFFFFF; }
+        .fa-map-marker-alt { color: #EA4335; }
 
         /* Logo Google Multicolore */
         .google-icon {
             font-weight: 900;
-            font-style: normal;
             background: linear-gradient(to right, #4285F4 25%, #EA4335 25% 50%, #FBBC05 50% 75%, #34A853 75%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-size: 2rem;
+            font-size: 2.2rem;
         }
 
-        /* Galerie */
-        .gallery-container { padding: 0 15px 120px; max-width: 1200px; margin: 0 auto; }
+        /* Galerie d'exploits */
+        .gallery-container { padding: 0 15px 50px; max-width: 1200px; margin: 0 auto; }
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
         }
         .card {
             background: var(--carte);
             border-radius: 15px;
             overflow: hidden;
             border: 1px solid rgba(255,255,255,0.05);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
             position: relative;
-            transition: transform 0.4s;
         }
-        .card:hover { transform: scale(1.02); }
         .card img, .card iframe {
             width: 100%;
             display: block;
@@ -116,23 +115,29 @@
             border: none;
         }
 
-        /* Footer & Admin */
+        /* Footer */
         footer {
-            padding: 80px 20px;
+            padding: 40px 20px;
             text-align: center;
             background: #000;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: auto;
         }
-        .admin-key {
+        
+        /* BOUTON SYSTEM VISIBLE MAIS DISCRET */
+        .admin-trigger {
             display: inline-block;
-            margin-top: 40px;
-            font-size: 8px;
-            color: #111; /* Presque invisible sur fond noir */
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 10px;
+            color: #222; /* Très sombre mais cliquable */
             text-decoration: none;
             cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
+        .admin-trigger:hover { color: #444; }
 
-        /* Modales */
+        /* MODALES */
         .modal {
             display: none;
             position: fixed;
@@ -158,24 +163,23 @@
         }
         .btn {
             width: 100%; padding: 16px; border-radius: 10px; border: none;
-            font-weight: bold; cursor: pointer; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px;
+            font-weight: bold; cursor: pointer; margin-top: 10px; text-transform: uppercase;
         }
         .btn-gold { background: var(--or); color: #000; }
         .btn-green { background: var(--vert); color: #000; }
-        .btn-off { background: none; color: #444; margin-top: 20px; font-size: 12px; }
+        .btn-off { background: none; color: #555; margin-top: 15px; }
 
         .btn-del {
             position: absolute;
-            top: 15px; right: 15px;
-            background: rgba(255,0,0,0.9);
-            color: white; border: none; padding: 12px; border-radius: 50%;
-            cursor: pointer; z-index: 10;
+            top: 10px; right: 10px;
+            background: rgba(255,0,0,0.8);
+            color: white; border: none; padding: 10px; border-radius: 50%;
+            cursor: pointer;
         }
 
         @media (max-width: 600px) {
-            h1 { font-size: 1.3rem; }
-            .grid { grid-template-columns: 1fr; }
-            .social-grid { grid-template-columns: repeat(3, 1fr); }
+            .social-grid { grid-template-columns: repeat(3, 1fr); gap: 15px; }
+            h1 { font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -191,7 +195,6 @@
         <h2>Espace d'Excellence</h2>
         <div class="line"></div>
         
-        <!-- RÉSEAUX SOCIAUX MIS À JOUR -->
         <div class="social-grid">
             <a href="https://wa.me/2693246465" class="social-link" title="WhatsApp">
                 <i class="fab fa-whatsapp"></i>
@@ -209,11 +212,12 @@
                 <i class="fab fa-tiktok"></i>
                 <span>TikTok</span>
             </a>
-            <a href="https://twitter.com/la_villa_dionysienne" class="social-link" title="X (Twitter)">
+            <!-- LIEN X CORRIGÉ ICI -->
+            <a href="https://x.com/LDyonisienne" target="_blank" class="social-link" title="X (Twitter)">
                 <i class="fab fa-x-twitter"></i>
                 <span>X / Twitter</span>
             </a>
-            <a href="https://www.google.com/maps?q=LA+VILLA+DIONYSIENNE+MC" class="social-link" title="Localisation">
+            <a href="https://www.google.com/maps?q=LA+VILLA+DIONYSIENNE+MC" class="social-link" title="Adresse">
                 <i class="fas fa-map-marker-alt"></i>
                 <span>Adresse</span>
             </a>
@@ -222,103 +226,106 @@
                 <span>Google</span>
             </a>
         </div>
+
+        <div id="gallery-grid" class="grid">
+            <!-- Galerie dynamique -->
+        </div>
     </section>
 
-    <div class="gallery-container">
-        <div id="gallery-grid" class="grid">
-            <!-- Contenu dynamique -->
-        </div>
-    </div>
-
     <footer>
-        <p style="opacity: 0.3; font-size: 11px;">&copy; 2025 LVD GLOBAL INVESTISSEMENT - Prestige & Expertise</p>
-        <!-- Gestion cachée -->
-        <a class="admin-key" onclick="openP('modal-auth')">System</a>
+        <p style="opacity: 0.3; font-size: 10px;">&copy; 2025 LVD GLOBAL INVESTISSEMENT</p>
+        <span class="admin-trigger" onclick="openP('modal-auth')">System</span>
     </footer>
 
-    <!-- Auth -->
+    <!-- Modale Connexion -->
     <div id="modal-auth" class="modal">
         <div class="modal-content">
-            <h3 style="color:var(--or); margin-bottom:20px;">AUTHENTIFICATION</h3>
-            <input type="password" id="p-input" placeholder="Code secret">
-            <button class="btn btn-gold" onclick="auth()">ENTRER</button>
-            <button class="btn btn-off" onclick="closeP('modal-auth')">RETOUR</button>
+            <h3 style="color:var(--or); margin-bottom:20px;">ACCÈS SYSTÈME</h3>
+            <input type="password" id="pass-input" placeholder="Entrez le code secret">
+            <button class="btn btn-gold" onclick="doAuth()">CONNEXION</button>
+            <button class="btn btn-off" onclick="closeP('modal-auth')">ANNULER</button>
         </div>
     </div>
 
-    <!-- Admin -->
+    <!-- Modale Tableau de bord -->
     <div id="modal-dash" class="modal">
         <div class="modal-content">
-            <h3 style="color:var(--vert); margin-bottom:20px;">PUBLIER</h3>
+            <h3 style="color:var(--vert); margin-bottom:20px;">PUBLIER UN PROJET</h3>
             <select id="m-type">
-                <option value="img">IMAGE (URL)</option>
-                <option value="vid">YOUTUBE (URL)</option>
+                <option value="img">IMAGE (Lien URL)</option>
+                <option value="vid">YOUTUBE (Lien URL)</option>
             </select>
-            <input type="url" id="m-url" placeholder="Lien du contenu">
-            <button class="btn btn-green" onclick="pub()">PUBLIER</button>
+            <input type="url" id="m-url" placeholder="Lien vers l'image ou la vidéo">
+            <button class="btn btn-green" onclick="doPub()">PUBLIER</button>
             <button class="btn btn-off" onclick="location.reload()">DÉCONNEXION</button>
         </div>
     </div>
 
     <script>
-        let db = JSON.parse(localStorage.getItem('lvd_vFinal_db') || '[]');
-        let authOk = false;
+        let db = JSON.parse(localStorage.getItem('lvd_data_v3') || '[]');
+        let isAdmin = false;
 
-        function openP(id) { document.getElementById(id).style.display = 'flex'; }
+        function openP(id) { 
+            console.log("Ouverture de " + id);
+            document.getElementById(id).style.display = 'flex'; 
+        }
         function closeP(id) { document.getElementById(id).style.display = 'none'; }
 
-        function auth() {
-            if(document.getElementById('p-input').value.toUpperCase() === "LVD2024") {
-                authOk = true;
+        function doAuth() {
+            const pin = document.getElementById('pass-input').value.toUpperCase();
+            if(pin === "LVD2024") {
+                isAdmin = true;
                 closeP('modal-auth');
                 openP('modal-dash');
-                draw();
-            } else { alert("Accès non autorisé."); }
+                render();
+            } else {
+                alert("Code incorrect.");
+            }
         }
 
-        function draw() {
+        function render() {
             const g = document.getElementById('gallery-grid');
             if(db.length === 0) {
-                g.innerHTML = '<p style="grid-column:1/-1; text-align:center; padding:100px; opacity:0.1;">Aucune publication...</p>';
+                g.innerHTML = '<p style="grid-column:1/-1; opacity:0.1; padding:50px;">Aucune publication...</p>';
                 return;
             }
             g.innerHTML = db.map((it, i) => `
                 <div class="card">
                     ${it.type === 'vid' ? 
-                        <iframe src="https://www.youtube.com/embed/${getV(it.url)}" allowfullscreen></iframe> : 
+                        <iframe src="https://www.youtube.com/embed/${getYT(it.url)}" allowfullscreen></iframe> : 
                         <img src="${it.url}" onerror="this.src='https://placehold.co/600x400/111827/ffffff?text=LVD+Global'">
                     }
-                    ${authOk ? <button class="btn-del" onclick="del(${i})"><i class="fas fa-trash"></i></button> : ''}
+                    ${isAdmin ? <button class="btn-del" onclick="remove(${i})"><i class="fas fa-trash"></i></button> : ''}
                 </div>
             `).join('');
         }
 
-        function getV(url) {
+        function getYT(u) {
             const r = /^.(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]).*/;
-            const m = url.match(r);
+            const m = u.match(r);
             return (m && m[2].length === 11) ? m[2] : '';
         }
 
-        function pub() {
+        function doPub() {
             const u = document.getElementById('m-url').value.trim();
             const t = document.getElementById('m-type').value;
             if(!u) return;
             db.unshift({ url: u, type: t });
-            localStorage.setItem('lvd_vFinal_db', JSON.stringify(db));
+            localStorage.setItem('lvd_data_v3', JSON.stringify(db));
             document.getElementById('m-url').value = '';
-            draw();
-            alert("Publié avec succès.");
+            render();
+            alert("Projet publié !");
         }
 
-        function del(i) {
-            if(confirm("Confirmer la suppression ?")) {
+        function remove(i) {
+            if(confirm("Supprimer cet élément ?")) {
                 db.splice(i, 1);
-                localStorage.setItem('lvd_vFinal_db', JSON.stringify(db));
-                draw();
+                localStorage.setItem('lvd_data_v3', JSON.stringify(db));
+                render();
             }
         }
 
-        draw();
+        render();
     </script>
 </body>
 </html>
