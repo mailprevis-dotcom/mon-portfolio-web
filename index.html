@@ -3,94 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>LVD Global - Portfolio Officiel</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>LA VILLA DIONYSIENNE MC - Global Investissement</title>
+    
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
-        body { background-color: #020617; color: white; font-family: 'Inter', sans-serif; }
-        .gold { color: #FFD700; }
-        .bg-gold { background-color: #FFD700; }
-        .card { background: #0f172a; border-radius: 2rem; overflow: hidden; border: 1px solid #1e293b; transition: transform 0.3s ease; }
-        .tab-active { border-bottom: 3px solid #FFD700; color: #FFD700; font-weight: 900; }
-        .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); }
+        :root {
+            --couleur-principale: #FFD700; /* Or */
+            --couleur-accent-secondaire: #00FF7F; /* Vert Néon */
+            --couleur-fond-principal: #1f2a38; 
+            --couleur-fond-secondaire: #2c3e50; 
+            --couleur-texte: #ecf0f1; 
+            --couleur-fond-hero: #111827; 
+            --couleur-stat-bg: rgba(44, 62, 80, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--couleur-fond-principal);
+            color: var(--couleur-texte);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* HEADER MOBILE OPTIMISÉ */
+        .header { 
+            background-color: var(--couleur-fond-secondaire); 
+            padding: 15px 0; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); 
+        }
+        .header h1 { 
+            text-align: center; 
+            font-size: 1.1rem; 
+            color: var(--couleur-principale); 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            margin-top: 10px;
+            padding: 0 15px;
+            font-weight: 900;
+        }
+        .header nav ul { 
+            list-style: none; 
+            text-align: center; 
+            margin-top: 15px; 
+            display: flex;
+            justify-content: center;
+        }
+        .header nav ul li { margin: 0 10px; }
+        .header nav ul li a { 
+            color: var(--couleur-texte); 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .logo-placeholder { 
+            height: 60px; width: 60px; 
+            background-color: var(--couleur-texte); 
+            border-radius: 50%; 
+            margin: 0 auto;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; color: var(--couleur-principale); font-weight: bold;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+        }
+
+        /* HERO SECTION MOBILE */
+        .hero { 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            text-align: center; min-height: 70vh; 
+            background-color: var(--couleur-fond-hero); 
+            border-bottom: 4px solid var(--couleur-accent-secondaire);
+            padding: 40px 20px;
+        }
+        .hero-title { 
+            font-size: 1.8rem; 
+            color: var(--couleur-principale); 
+            text-transform: uppercase; 
+            margin-bottom: 20px; 
+            line-height: 1.2;
+        }
+        
+        /* STATS ADAPTÉES */
+        .stats-container { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px; 
+            margin: 25px 0; 
+            width: 100%; 
+        }
+        .stat-item { 
+            background-color: var(--couleur-stat-bg); 
+            padding: 15px 5px; 
+            border-radius: 15px; 
+            border: 1px solid var(--couleur-accent-secondaire);
+        }
+        .stat-number { display: block; font-size: 1.5rem; font-weight: bold; color: var(--couleur-principale); }
+        .stat-label { font-size: 0.7rem; text-transform: uppercase; opacity: 0.8; }
+
+        .social-hero-links { margin-top: 20px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .social-hero-links a { font-size: 2.2rem; transition: transform 0.2s; }
+        
+        /* COULEURS ICONES */
+        .fa-whatsapp { color: #25D366; }
+        .fa-instagram { color: #E4405F; }
+        .fa-facebook { color: #1877F2; }
+        .fa-x-twitter, .fa-threads { color: #ffffff; }
+
+        /* GALERIE CLOUD MOBILE */
+        .galerie-cloud { background-color: #1a222c; padding: 40px 15px; }
+        .galerie-cloud h2 { 
+            color: var(--couleur-principale); 
+            text-transform: uppercase; 
+            margin-bottom: 30px; 
+            border-bottom: 2px solid var(--couleur-accent-secondaire);
+            display: inline-block;
+            font-size: 1.5rem;
+        }
+        #cont-photos { 
+            display: grid; 
+            grid-template-columns: 1fr; 
+            gap: 20px; 
+        }
+        .photo-card { 
+            background: #111; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            border: 1px solid rgba(0, 255, 127, 0.3); 
+            position: relative; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .photo-card img { width: 100%; height: auto; display: block; }
+        .photo-card iframe { width: 100%; aspect-ratio: 16/9; display: block; border: none; }
+
+        /* ADMIN ZONE MOBILE */
+        #login-zone { margin-top: 30px; }
+        .input-style { 
+            width: 100%; 
+            padding: 15px; 
+            margin: 10px 0; 
+            border-radius: 12px; 
+            border: 1px solid #334155; 
+            background: #000; 
+            color: #fff;
+            font-size: 16px; /* Évite le zoom auto sur iPhone */
+        }
+        .btn-adm { 
+            background: var(--couleur-principale); 
+            color: #000; 
+            font-weight: 900; 
+            padding: 15px; 
+            border: none; 
+            border-radius: 12px; 
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .contact { background-color: var(--couleur-fond-principal); padding: 40px 20px; text-align: center; }
+        .contact p { margin-bottom: 15px; font-size: 0.95rem; }
+        .footer { background-color: #111; color: #555; text-align: center; padding: 25px; font-size: 0.7rem; border-top: 1px solid #222; }
+
+        /* Écran large (Tablette/PC) */
+        @media (min-width: 768px) {
+            #cont-photos { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+            .hero-title { font-size: 3.5rem; }
+            .header h1 { font-size: 1.8rem; }
+            .stats-container { grid-template-columns: repeat(3, 1fr); max-width: 600px; }
+        }
     </style>
 </head>
-<body class="flex flex-col min-h-screen">
+<body>
 
-    <!-- HEADER FIXE -->
-    <nav class="p-4 bg-slate-900 border-b border-white/10 flex justify-between items-center sticky top-0 z-50">
-        <div class="flex items-center gap-2">
-            <span class="bg-white text-black px-2 py-0.5 rounded font-black text-[10px]">LVD</span>
-            <span class="gold font-bold text-[10px] tracking-[0.2em] uppercase">Villa Dionysienne</span>
+    <header class="header">
+        <div class="logo-placeholder">LVD</div>
+        <h1>LA VILLA DIONYSIENNE MC GLOBAL INVESTISSEMENT</h1>
+        <nav>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#galerie">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="accueil" class="hero">
+        <h2 class="hero-title">NOTRE PARCOURS EN IMAGES</h2>
+        <p style="margin-bottom: 20px; opacity: 0.9;">Suivez l'évolution de nos investissements globaux.</p>
+
+        <div class="stats-container">
+            <div class="stat-item"><span class="stat-number">150+</span><span class="stat-label">Photos</span></div>
+            <div class="stat-item"><span class="stat-number">25+</span><span class="stat-label">Vidéos</span></div>
+            <div class="stat-item" style="grid-column: span 2;"><span class="stat-number">5000+</span><span class="stat-label">Partenaires</span></div>
         </div>
-        <div class="flex gap-4 items-center">
-            <a href="https://wa.me/2693246465" target="_blank" class="text-green-500 text-xl"><i class="fab fa-whatsapp"></i></a>
+
+        <div class="social-hero-links">
+            <a href="https://wa.me/2693246465" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/la_villa_dionysienne" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1FcL1xJvfv/" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://x.com/LDyonisienne" target="_blank"><i class="fab fa-x-twitter"></i></a>
         </div>
-    </nav>
+    </section>
 
-    <!-- NAVIGATION PAR ONGLETS -->
-    <div class="flex glass border-b border-white/5 sticky top-[57px] z-40">
-        <button id="tab-gal" onclick="switchView('gal')" class="flex-1 py-4 text-[10px] font-bold uppercase tracking-widest tab-active">Réalisations</button>
-        <button id="tab-adm" onclick="switchView('adm')" class="flex-1 py-4 text-[10px] font-bold uppercase tracking-widest opacity-60">Gestion</button>
-    </div>
+    <!-- GALERIE MOBILE -->
+    <section id="galerie" class="galerie-cloud text-center">
+        <center><h2>Nos Réalisations</h2></center>
+        <div id="cont-photos">
+            <p style="text-align:center; padding:50px; opacity:0.3;">Chargement du cloud...</p>
+        </div>
 
-    <main class="flex-grow p-4 max-w-md mx-auto w-full">
-        
-        <!-- VUE PUBLIQUE (GALERIE) -->
-        <div id="view-gal">
-            <div class="text-center py-8">
-                <h2 class="text-3xl font-black italic uppercase tracking-tighter">Nos <span class="gold">Projets</span></h2>
-                <p class="text-[9px] text-slate-500 uppercase tracking-[0.4em] mt-2 italic">Excellence Immobilière</p>
-            </div>
+        <!-- ZONE GESTIONNAIRE MOBILE -->
+        <div style="margin-top: 60px; border-top: 1px solid #334155; padding-top: 20px;">
+            <button id="btn-login-show" onclick="document.getElementById('login-zone').style.display='block'; this.style.display='none'" style="background:transparent; color:#555; border:1px solid #333; padding:8px 15px; border-radius:10px; font-size:10px; text-transform:uppercase;">Espace Administration</button>
             
-            <div id="gallery-container" class="grid grid-cols-1 gap-8 pb-20">
-                <div class="text-center py-20 opacity-30 text-xs uppercase tracking-widest animate-pulse italic">Synchronisation Cloud...</div>
+            <div id="login-zone" style="display:none; max-width: 300px; margin: 0 auto;">
+                <input type="password" id="pass" placeholder="Code PIN" class="input-style">
+                <button onclick="verifier()" class="btn-adm">Vérifier</button>
+            </div>
+
+            <div id="admin-box" style="display:none; margin-top:20px; background:#0f172a; padding:20px; border-radius:20px; border:1px solid var(--couleur-principale);">
+                <h3 style="color:var(--couleur-principale); font-size:12px; text-transform:uppercase; margin-bottom:15px;">Ajouter un média</h3>
+                <select id="m-type" class="input-style">
+                    <option value="image">📷 Photo (Lien Direct)</option>
+                    <option value="video">🎥 Vidéo YouTube</option>
+                </select>
+                <input type="url" id="m-url" placeholder="Coller le lien ici" class="input-style">
+                <button onclick="publier()" class="btn-adm" style="background:var(--couleur-accent-secondaire)">Publier au Cloud</button>
             </div>
         </div>
+    </section>
 
-        <!-- VUE ADMINISTRATION -->
-        <div id="view-adm" class="hidden py-6">
-            <!-- Formulaire Login -->
-            <div id="admin-login" class="py-10 text-center">
-                <div class="w-16 h-16 bg-slate-900 border border-white/10 rounded-3xl flex items-center justify-center mx-auto mb-6">
-                    <i class="fas fa-lock gold text-xl"></i>
-                </div>
-                <h3 class="gold text-[10px] font-bold uppercase mb-8 tracking-[0.3em]">Espace Propriétaire</h3>
-                <input type="password" id="pass-input" placeholder="MOT DE PASSE" class="w-full bg-black border border-slate-800 p-5 rounded-2xl text-center text-white mb-4 outline-none focus:border-gold">
-                <button onclick="checkAccess()" class="w-full bg-gold text-black font-black p-5 rounded-2xl uppercase text-xs shadow-xl active:scale-95 transition-all">Accéder</button>
-                <p class="text-[9px] text-slate-600 mt-6 uppercase italic">Indice : LVD + Année en cours</p>
-            </div>
+    <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <p><i class="fas fa-envelope gold"></i> <a href="mailto:mailprevis@gmail.com" style="color:white; text-decoration:none;">mailprevis@gmail.com</a></p>
+        <p><i class="fas fa-phone-alt gold"></i> <a href="tel:+2693246465" style="color:white; text-decoration:none;">+269 32 46 465</a></p>
+        <a href="https://wa.me/2693246465" style="display:inline-block; margin-top:15px; background:#25D366; color:white; padding:12px 25px; border-radius:50px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> WhatsApp Direct</a>
+    </section>
 
-            <!-- Panneau d'administration -->
-            <div id="admin-panel" class="hidden">
-                <div class="bg-green-500/10 border border-green-500/20 p-4 rounded-2xl mb-8 flex items-center justify-between">
-                    <p class="text-green-500 text-[10px] font-bold uppercase tracking-widest">Session Active</p>
-                    <button onclick="location.reload()" class="text-slate-400 text-[10px] uppercase font-bold underline">Fermer</button>
-                </div>
-                
-                <div class="space-y-6">
-                    <div class="bg-slate-900/50 p-6 rounded-[2rem] border border-white/5">
-                        <h3 class="gold text-[10px] font-bold uppercase mb-4 tracking-widest">Nouveau Contenu</h3>
-                        
-                        <label class="block text-[9px] uppercase text-slate-500 mb-2 ml-1">Type de média</label>
-                        <select id="media-type" class="w-full bg-black border border-slate-800 p-4 rounded-xl text-white text-xs mb-4 outline-none">
-                            <option value="image">Photo (Lien direct .jpg/.png)</option>
-                            <option value="video">Vidéo (Lien YouTube)</option>
-                        </select>
-
-                        <label class="block text-[9px] uppercase text-slate-500 mb-2 ml-1">Lien du média</label>
-                        <input type="url" id="media-url" placeholder="Collez le lien ici..." class="w-full bg-black border border-slate-800 p-4 rounded-xl text-white text-xs mb-6 outline-none focus:border-green-500">
-                        
-                        <button onclick="publishMedia()" id="btn-pub" class="w-full bg-green-500 text-black font-black p-4 rounded-xl uppercase text-[10px] shadow-lg">Publier sur le site</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <footer class="p-8 text-center opacity-20 mt-auto">
-        <p class="text-[9px] uppercase tracking-[0.4em]">LVD Global Invest © 2024</p>
+    <footer class="footer">
+        <p>&copy; 2025 LA VILLA DIONYSIENNE MC GLOBAL INVESTISSEMENT.<br>Optimisé pour Mobile • Cloud Sync</p>
     </footer>
 
     <script type="module">
@@ -98,124 +261,74 @@
         import { getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
         import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-        // CONFIGURATION FIREBASE
-        const firebaseConfig = JSON.parse('__firebase_config');
-        const app = initializeApp(firebaseConfig);
+        const cfg = JSON.parse('__firebase_config');
+        const app = initializeApp(cfg);
         const db = getFirestore(app);
-        const auth = getAuth(app);
-        const appId = '__app_id';
-        const colRef = collection(db, 'artifacts', appId, 'public', 'data', 'lvd_cloud_vfinal');
+        const col = collection(db, 'artifacts', '__app_id', 'public', 'data', 'lvd_mobile_v1');
+        let estAdmin = false;
 
-        let isAdmin = false;
-
-        // AUTHENTIFICATION
-        async function init() {
+        async function start() {
             try {
-                await signInAnonymously(auth);
-                listenToData();
-            } catch(e) { console.error("Erreur Cloud:", e); }
-        }
-
-        // CHARGEMENT DES DONNÉES
-        function listenToData() {
-            onSnapshot(colRef, (snap) => {
-                const container = document.getElementById('gallery-container');
-                container.innerHTML = '';
-                
-                let items = [];
-                snap.forEach(d => items.push({id: d.id, ...d.data()}));
-                items.sort((a,b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
-
-                if(items.length === 0) {
-                    container.innerHTML = '<div class="py-20 text-center opacity-20 uppercase text-[9px] font-bold tracking-[0.3em]">Aucun projet à afficher</div>';
-                    return;
-                }
-
-                items.forEach(item => {
-                    const div = document.createElement('div');
-                    div.className = "card shadow-2xl relative";
+                await signInAnonymously(getAuth(app));
+                onSnapshot(col, (s) => {
+                    const c = document.getElementById('cont-photos'); c.innerHTML = '';
+                    let items = []; s.forEach(d => items.push({id: d.id, ...d.data()}));
+                    items.sort((a,b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
                     
-                    let mediaHTML = '';
-                    if(item.type === 'video') {
-                        // Gestion lien YouTube
-                        let ytId = extractYoutubeId(item.url);
-                        mediaHTML = <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/${ytId}" frameborder="0" allowfullscreen></iframe>;
-                    } else {
-                        mediaHTML = <img src="${item.url}" class="w-full aspect-square object-cover" onerror="this.src='https://placehold.co/600x600/0f172a/FFD700?text=Image+Non+Disponible'">;
+                    if(items.length === 0) {
+                        c.innerHTML = '<p style="text-align:center; padding:40px; opacity:0.2; font-size:10px;">AUCUN CONTENU POUR LE MOMENT</p>';
                     }
 
-                    div.innerHTML = `
-                        ${mediaHTML}
-                        <div class="p-6 bg-gradient-to-t from-slate-950 to-slate-900">
-                            <div class="flex justify-between items-center">
-                                <span class="gold text-[10px] font-black italic uppercase tracking-widest">LVD Global MC</span>
-                                ${isAdmin ? <button onclick="window.deleteItem('${item.id}')" class="text-red-500 text-sm"><i class="fas fa-trash-alt"></i></button> : ''}
-                            </div>
-                        </div>
-                    `;
-                    container.appendChild(div);
+                    items.forEach(item => {
+                        const d = document.createElement('div');
+                        d.className = "photo-card";
+                        if(item.type === 'video') {
+                            let vid = item.url.includes('v=') ? item.url.split('v=')[1].split('&')[0] : item.url.split('/').pop();
+                            d.innerHTML = <iframe src="https://www.youtube.com/embed/${vid}" allowfullscreen></iframe>;
+                        } else {
+                            d.innerHTML = <img src="${item.url}" loading="lazy" onerror="this.src='https://placehold.co/400x400/111/FFD700?text=LVD+IMAGE'">;
+                        }
+                        if(estAdmin) {
+                            const btnDel = document.createElement('button');
+                            btnDel.innerHTML = '<i class="fas fa-trash"></i>';
+                            btnDel.style = "position:absolute; top:10px; right:10px; background:rgba(255,0,0,0.8); color:white; border:none; padding:10px; border-radius:10px; z-index:10;";
+                            btnDel.onclick = () => window.suppr(item.id);
+                            d.appendChild(btnDel);
+                        }
+                        c.appendChild(d);
+                    });
                 });
-            });
+            } catch(e) { console.error(e); }
         }
 
-        function extractYoutubeId(url) {
-            const regExp = /^.(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]).*/;
-            const match = url.match(regExp);
-            return (match && match[2].length == 11) ? match[2] : url;
-        }
-
-        // GESTIONNAIRE
-        window.checkAccess = () => {
-            const pass = document.getElementById('pass-input').value;
-            // MOT DE PASSE : LVD2024
-            if(pass.toUpperCase() === "LVD2024") {
-                isAdmin = true;
-                document.getElementById('admin-login').classList.add('hidden');
-                document.getElementById('admin-panel').classList.remove('hidden');
-                listenToData();
-            } else {
-                alert("Mot de passe incorrect");
-            }
+        window.verifier = () => {
+            const val = document.getElementById('pass').value.toUpperCase();
+            if(val === "LVD2024") {
+                estAdmin = true;
+                document.getElementById('admin-box').style.display = 'block';
+                document.getElementById('login-zone').style.display = 'none';
+                start();
+            } else alert("CODE PIN INCORRECT");
         };
 
-        window.publishMedia = async () => {
-            const url = document.getElementById('media-url').value.trim();
-            const type = document.getElementById('media-type').value;
-            if(!url) return alert("Veuillez entrer un lien");
-
-            const btn = document.getElementById('btn-pub');
-            btn.disabled = true; btn.innerText = "PUBLICATION EN COURS...";
-
+        window.publier = async () => {
+            const url = document.getElementById('m-url').value.trim();
+            const type = document.getElementById('m-type').value;
+            if(!url) return alert("ENTREZ UN LIEN");
             try {
-                await addDoc(colRef, {
-                    url: url,
-                    type: type,
-                    createdAt: serverTimestamp()
-                });
-                document.getElementById('media-url').value = '';
-                alert("Publié sur le site avec succès !");
-            } catch(e) {
-                alert("Erreur lors de la publication Cloud");
-            }
-            btn.disabled = false; btn.innerText = "Publier sur le site";
+                await addDoc(col, { url, type, createdAt: serverTimestamp() });
+                document.getElementById('m-url').value = '';
+                alert("PUBLIÉ !");
+            } catch(e) { alert("ERREUR"); }
         };
 
-        window.deleteItem = async (id) => {
-            if(confirm("Supprimer définitivement ce contenu ?")) {
-                await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'lvd_cloud_vfinal', id));
+        window.suppr = async (id) => {
+            if(confirm("SUPPRIMER CE CONTENU ?")) {
+                await deleteDoc(doc(db, 'artifacts', '__app_id', 'public', 'data', 'lvd_mobile_v1', id));
             }
         };
 
-        window.switchView = (type) => {
-            document.getElementById('view-gal').classList.toggle('hidden', type !== 'gal');
-            document.getElementById('view-adm').classList.toggle('hidden', type !== 'adm');
-            document.getElementById('tab-gal').classList.toggle('tab-active', type === 'gal');
-            document.getElementById('tab-adm').classList.toggle('tab-active', type === 'adm');
-            document.getElementById('tab-gal').classList.toggle('opacity-60', type !== 'gal');
-            document.getElementById('tab-adm').classList.toggle('opacity-60', type !== 'adm');
-        };
-
-        init();
+        start();
     </script>
 </body>
 </html>
