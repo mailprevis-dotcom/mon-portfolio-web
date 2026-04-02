@@ -7,352 +7,265 @@
     <style>
         :root {
             --gold: #D4AF37;
-            --bg-black: #050505;
-            --card-bg: #121212;
-            --text-white: #ffffff;
-            --text-muted: #888888;
-            
-            /* Couleurs Réseaux Sociaux Fixes */
-            --color-whatsapp: #25D366;
-            --color-facebook: #1877F2;
-            --color-instagram: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            --color-tiktok: #000000;
-            --color-x: #000000;
-            --color-google: #4285F4;
+            --black: #050505;
+            --gray: #111111;
+            /* Couleurs réseaux */
+            --wa: #25D366; --fb: #1877F2; --ig: #E1306C; --tk: #000000; --x: #000000; --maps: #EA4335;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-
-        body {
-            background-color: var(--bg-black);
-            color: var(--text-white);
-            line-height: 1.6;
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        body { 
+            background: radial-gradient(circle at top, #1a1a1a 0%, #050505 100%); 
+            color: white; 
+            min-height: 100vh;
         }
 
-        header {
-            padding: 60px 20px;
-            text-align: center;
-            background: linear-gradient(180deg, #111, var(--bg-black));
+        /* HEADER */
+        header { padding: 60px 20px 40px; text-align: center; }
+        .logo-circle { 
+            width: 100px; height: 100px; background: white; border-radius: 50%; 
+            margin: 0 auto 25px; display: flex; align-items: center; justify-content: center;
+            border: 4px solid var(--gold); color: #333; font-weight: 900; font-size: 28px;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+        h1 { color: var(--gold); letter-spacing: 4px; font-size: 1.5rem; text-transform: uppercase; font-weight: 800; }
+        .tagline { color: #aaa; font-size: 0.75rem; letter-spacing: 5px; margin-top: 8px; text-transform: uppercase; }
+
+        /* SOCIAL BAR */
+        .social-bar { 
+            display: flex; justify-content: center; gap: 12px; padding: 20px; 
+            flex-wrap: wrap; max-width: 600px; margin: 0 auto; 
+        }
+        .icon-box { 
+            width: 45px; height: 45px; border-radius: 12px; display: flex; 
+            align-items: center; justify-content: center; text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: var(--gray); border: 1px solid #222;
+        }
+        .icon-box:hover { transform: translateY(-5px); border-color: var(--gold); }
+        .icon-box svg { width: 22px; height: 22px; fill: white; }
+
+        /* CONTENT */
+        .main-content { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .section-header { 
+            text-align: center; margin-bottom: 40px; position: relative;
+        }
+        .section-header h2 { 
+            text-transform: uppercase; letter-spacing: 4px; font-size: 1.2rem;
+            display: inline-block; padding-bottom: 10px;
+        }
+        .section-header::after {
+            content: ''; display: block; width: 50px; height: 3px; 
+            background: var(--gold); margin: 10px auto; border-radius: 2px;
         }
 
-        .logo-main {
-            width: 120px;
-            height: 120px;
-            background: #fff;
-            border-radius: 50%;
-            margin: 0 auto 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 4px solid var(--gold);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+        .grid { 
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+            gap: 25px; 
+        }
+        .project-card { 
+            background: #0f0f0f; border-radius: 15px; overflow: hidden; 
+            border: 1px solid #1a1a1a; transition: 0.3s; position: relative;
+        }
+        .project-card:hover { border-color: #333; transform: scale(1.02); }
+        .project-card img, .project-card iframe { 
+            width: 100%; aspect-ratio: 16/9; display: block; border: none; object-fit: cover; 
         }
 
-        .logo-main span {
-            color: #000;
-            font-size: 32px;
-            font-weight: 900;
-            letter-spacing: -1px;
+        /* ADMIN FORM */
+        .admin-section { 
+            margin-top: 80px; padding: 30px; background: #0a0a0a; 
+            border-radius: 20px; border: 1px dashed #333; max-width: 500px; margin-left: auto; margin-right: auto;
         }
-
-        h1 {
-            font-size: 1.8rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 8px;
+        input, select { 
+            width: 100%; padding: 14px; margin-bottom: 15px; 
+            background: #111; border: 1px solid #222; color: white; border-radius: 8px; 
         }
-
-        .tagline {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            letter-spacing: 5px;
-            text-transform: uppercase;
+        .btn-gold { 
+            background: var(--gold); color: black; border: none; padding: 15px; 
+            width: 100%; font-weight: bold; cursor: pointer; border-radius: 8px; 
+            text-transform: uppercase; letter-spacing: 1px;
         }
-
-        /* NAVIGATION SOCIALE COULEURS FIXES */
-        .social-bar {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            padding: 20px;
-            flex-wrap: wrap;
-        }
-
-        .icon-box {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
-
-        .icon-box:hover { transform: scale(1.1); }
-        .icon-box svg { width: 26px; height: 26px; fill: white; }
-
-        .wa-bg { background-color: var(--color-whatsapp); }
-        .fb-bg { background-color: var(--color-facebook); }
-        .ig-bg { background: var(--color-instagram); }
-        .tk-bg { background-color: var(--color-tiktok); border: 1px solid #333; }
-        .x-bg { background-color: var(--color-x); border: 1px solid #333; }
-        .gg-bg { background-color: var(--color-google); }
-
-        /* GALERIE */
-        section {
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 1.3rem;
-            letter-spacing: 3px;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-        }
-
-        .section-title::after {
-            content: ''; display: block; width: 60px; height: 2px; background: var(--gold); margin: 15px auto;
-        }
-
-        .grid-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 25px;
-        }
-
-        .media-item {
-            background: var(--card-bg);
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid #222;
-            position: relative;
-            transition: 0.3s;
-        }
-
-        .media-item:hover { border-color: var(--gold); }
-
-        .media-item img, .media-item iframe {
-            width: 100%;
-            aspect-ratio: 16/9;
-            display: block;
-            object-fit: cover;
-            border: none;
-        }
-
-        .empty-status {
-            grid-column: 1/-1;
-            text-align: center;
-            padding: 100px 20px;
-            color: #555;
-            font-style: italic;
-        }
-
-        /* ZONE D'ADMINISTRATION */
-        .admin-box {
-            background: #0a0a0a;
-            border: 1px solid #1a1a1a;
-            border-radius: 10px;
-            padding: 30px;
-            max-width: 450px;
-            margin: 40px auto;
-        }
-
-        input, select {
-            width: 100%;
-            padding: 14px;
-            margin-bottom: 15px;
-            background: #000;
-            border: 1px solid #333;
-            color: #fff;
-            border-radius: 5px;
-        }
-
-        .btn-gold {
-            background: var(--gold);
-            color: #000;
-            border: none;
-            padding: 15px;
-            width: 100%;
-            font-weight: 800;
-            cursor: pointer;
-            border-radius: 5px;
-            text-transform: uppercase;
-        }
-
-        .btn-del {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #ff3b30;
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            z-index: 10;
-        }
-
         .hidden { display: none; }
-
-        footer {
-            padding: 80px 20px;
-            text-align: center;
-            font-size: 0.8rem;
-            color: #333;
-            border-top: 1px solid #111;
+        .delete-btn {
+            position: absolute; top: 10px; right: 10px; background: rgba(220, 20, 60, 0.9);
+            color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 11px;
         }
 
-        /* LE BOUTON POUR TOI */
-        .btn-config {
-            cursor: pointer;
-            color: #222; /* Très sombre pour être discret */
-            font-weight: bold;
-            text-decoration: underline;
-            margin-top: 10px;
-            display: inline-block;
-        }
-        .btn-config:hover { color: var(--gold); }
+        footer { padding: 60px 20px; text-align: center; color: #444; font-size: 0.8rem; }
+        .manage-link { color: #555; cursor: pointer; display: block; margin-top: 20px; font-size: 0.7rem; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo-main">
-        <span>LVD</span>
-    </div>
+    <div class="logo-circle">LVD</div>
     <h1>LA VILLA DIONYSIENNE MC</h1>
     <p class="tagline">GLOBAL INVESTISSEMENT</p>
 </header>
 
 <div class="social-bar">
-    <a href="https://wa.me/2693246465" class="icon-box wa-bg" title="WhatsApp">
+    <!-- WhatsApp -->
+    <a href="https://wa.me/2693246465" class="icon-box" title="WhatsApp" style="background: var(--wa)">
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.396.015 12.03c0 2.123.548 4.197 1.591 6.027L0 24l6.135-1.61a11.802 11.802 0 005.911 1.586h.005c6.637 0 12.032-5.396 12.036-12.03a11.817 11.817 0 00-3.417-8.435z"/></svg>
     </a>
-    <a href="https://facebook.com" class="icon-box fb-bg">
-        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-    </a>
-    <a href="https://instagram.com" class="icon-box ig-bg">
-        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12s.014 3.667.072 4.947c.2 4.353 2.612 6.773 6.973 6.973 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c4.351-.2 6.77-2.618 6.97-6.973.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.2-4.353-2.612-6.77-6.973-6.973C15.667.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-    </a>
-    <a href="https://tiktok.com" class="icon-box tk-bg">
-        <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.9-.32-1.98-.23-2.81.31-.75.42-1.24 1.25-1.31 2.1-.01.56.06 1.12.33 1.62.4.81 1.22 1.44 2.13 1.61.91.17 1.89-.1 2.59-.74.7-.61 1.05-1.59 1.05-2.51V.02z"/></svg>
-    </a>
-    <a href="https://x.com" class="icon-box x-bg">
+    <!-- X / Twitter -->
+    <a href="#" class="icon-box" title="X (Twitter)" style="background: var(--x)">
         <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
     </a>
-    <a href="https://google.com" class="icon-box gg-bg">
-        <svg viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg>
+    <!-- Facebook -->
+    <a href="#" class="icon-box" title="Facebook" style="background: var(--fb)">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    <!-- Instagram -->
+    <a href="#" class="icon-box" title="Instagram" style="background: var(--ig)">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12s.014 3.667.072 4.947c.2 4.353 2.612 6.773 6.973 6.973 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c4.351-.2 6.77-2.618 6.97-6.973.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.2-4.353-2.612-6.77-6.973-6.973C15.667.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+    </a>
+    <!-- TikTok -->
+    <a href="#" class="icon-box" title="TikTok" style="background: var(--tk)">
+        <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.9-.32-1.98-.23-2.81.31-.75.42-1.24 1.25-1.31 2.1-.01.56.06 1.12.33 1.62.4.81 1.22 1.44 2.13 1.61.91.17 1.89-.1 2.59-.74.7-.61 1.05-1.59 1.05-2.51V.02z"/></svg>
+    </a>
+    <!-- Localisation / Google Maps -->
+    <a href="#" class="icon-box" title="Notre Adresse" style="background: var(--maps)">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
     </a>
 </div>
 
-<section>
-    <h2 class="section-title">RÉALISATIONS</h2>
-    <div id="gallery-container" class="grid-gallery">
-        <!-- Rempli par JS -->
+<div class="main-content">
+    <div class="section-header">
+        <h2>RÉALISATIONS</h2>
     </div>
 
-    <!-- PANNEAU ADMIN MASQUÉ -->
+    <div id="gallery-grid" class="grid">
+        <p style="text-align:center; grid-column:1/-1; color:#555; padding:50px;">Chargement en cours...</p>
+    </div>
+
+    <!-- ZONE ADMIN -->
     <div id="admin-panel" class="hidden">
-        <div class="admin-box">
-            <div id="auth-section">
-                <h3>VÉRIFICATION</h3>
-                <input type="password" id="pass-code" placeholder="Entrez le code">
-                <button class="btn-gold" onclick="checkPass()">Accéder</button>
+        <div class="admin-section">
+            <h3 style="text-align:center; margin-bottom:20px; color:var(--gold)">ESPACE GESTION</h3>
+            <div id="auth-box">
+                <input type="password" id="admin-code" placeholder="Code de sécurité">
+                <button class="btn-gold" onclick="checkAuth()">ENTRER</button>
             </div>
-            <div id="manage-section" class="hidden">
-                <h3>AJOUTER UN MÉDIA</h3>
-                <select id="m-type">
-                    <option value="image">Photo (Lien URL)</option>
-                    <option value="video">Vidéo (Lien YouTube)</option>
+            <div id="form-box" class="hidden">
+                <select id="media-type">
+                    <option value="img">IMAGE (URL)</option>
+                    <option value="vid">YOUTUBE (LIEN)</option>
                 </select>
-                <input type="text" id="m-url" placeholder="Collez l'URL ici">
-                <button class="btn-gold" onclick="pushMedia()">Mettre en ligne</button>
+                <input type="text" id="media-url" placeholder="Coller le lien ici...">
+                <button class="btn-gold" onclick="publishMedia()">PUBLIER LE PROJET</button>
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <footer>
     <p>&copy; 2025 LVD Global Investissement. Confidentialité assurée.</p>
-    <!-- CE BOUTON OUVRE LE PANNEAU -->
-    <div class="btn-config" onclick="openAdmin()">Configuration</div>
+    <span class="manage-link" onclick="document.getElementById('admin-panel').classList.toggle('hidden')">Configuration</span>
 </footer>
 
+<!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-auth-compat.js"></script>
 
 <script>
-    const fbCfg = JSON.parse(__firebase_config);
-    firebase.initializeApp(fbCfg);
+    const firebaseConfig = JSON.parse(__firebase_config);
+    firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
-    const appId = typeof __app_id !== 'undefined' ? __app_id : 'lvd-v5-final';
-    const store = db.collection('artifacts').doc(appId).collection('public').doc('data').collection('gallery');
+    const appId = typeof __app_id !== 'undefined' ? __app_id : 'lvd-main-final';
+    
+    // Chemin Firestore strict Rule 1
+    const collectionRef = db.collection('artifacts').doc(appId).collection('public').doc('data').collection('items');
 
-    let isUnlocked = false;
+    let isAdmin = false;
 
-    firebase.auth().signInAnonymously();
+    // Auth anonyme obligatoire Rule 3
+    firebase.auth().signInAnonymously().catch(e => console.error("Auth error", e));
 
-    function openAdmin() {
-        document.getElementById('admin-panel').classList.toggle('hidden');
+    function checkAuth() {
+        if(document.getElementById('admin-code').value === "1234") {
+            isAdmin = true;
+            document.getElementById('auth-box').classList.add('hidden');
+            document.getElementById('form-box').classList.remove('hidden');
+            loadGallery(); // Rafraîchir pour voir les boutons de suppression
+        } else {
+            alert("Code incorrect");
+        }
     }
 
-    function checkPass() {
-        if(document.getElementById('pass-code').value === "1234") {
-            isUnlocked = true;
-            document.getElementById('auth-section').classList.add('hidden');
-            document.getElementById('manage-section').classList.remove('hidden');
-            render();
-        } else { alert("Code refusé."); }
-    }
-
-    function render() {
-        store.orderBy('ts', 'desc').onSnapshot(snap => {
-            const grid = document.getElementById('gallery-container');
-            if(snap.empty) {
-                grid.innerHTML = '<div class="empty-status">Aucun projet pour le moment. Utilisez le panneau Configuration pour en ajouter.</div>';
+    function loadGallery() {
+        // Rule 2: Simple query sans orderBy pour éviter les erreurs d'index au début
+        collectionRef.onSnapshot(snapshot => {
+            const container = document.getElementById('gallery-grid');
+            if (snapshot.empty) {
+                container.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#333; padding:50px;">Aucun projet affiché pour le moment.</p>';
                 return;
             }
-            grid.innerHTML = "";
-            snap.forEach(doc => {
-                const item = doc.data();
+
+            // Trier manuellement en mémoire pour éviter le bug d'indexation Firebase
+            const docs = [];
+            snapshot.forEach(doc => docs.push({id: doc.id, ...doc.data()}));
+            docs.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+
+            container.innerHTML = "";
+            docs.forEach(data => {
                 const card = document.createElement('div');
-                card.className = 'media-item';
+                card.className = 'project-card';
                 
-                if(item.type === 'video') {
-                    const id = item.url.includes('v=') ? item.url.split('v=')[1].split('&')[0] : item.url.split('/').pop();
-                    card.innerHTML = <iframe src="https://www.youtube.com/embed/${id}" allowfullscreen></iframe>;
+                if(data.type === 'vid') {
+                    const vidId = data.url.includes('v=') ? data.url.split('v=')[1].split('&')[0] : data.url.split('/').pop();
+                    card.innerHTML = <iframe src="https://www.youtube.com/embed/${vidId}" allowfullscreen></iframe>;
                 } else {
-                    card.innerHTML = <img src="${item.url}" onerror="this.src='https://placehold.co/800x450/111/D4AF37?text=Projet+LVD'">;
+                    card.innerHTML = <img src="${data.url}" onerror="this.src='https://placehold.co/800x450/050505/D4AF37?text=Image+Indisponible'">;
                 }
 
-                if(isUnlocked) {
-                    const d = document.createElement('button');
-                    d.className = 'btn-del'; d.innerText = 'Supprimer';
-                    d.onclick = () => { if(confirm('Supprimer ?')) doc.ref.delete(); };
-                    card.appendChild(d);
+                if(isAdmin) {
+                    const delBtn = document.createElement('button');
+                    delBtn.className = 'delete-btn';
+                    delBtn.innerText = "SUPPRIMER";
+                    delBtn.onclick = () => { if(confirm("Supprimer ce projet ?")) deleteProject(data.id); };
+                    card.appendChild(delBtn);
                 }
-                grid.appendChild(card);
+
+                container.appendChild(card);
             });
+        }, error => {
+            console.error(error);
+            document.getElementById('gallery-grid').innerHTML = '<p style="color:#666; text-align:center; grid-column:1/-1;">Synchronisation avec le Cloud LVD...</p>';
         });
     }
 
-    async function pushMedia() {
-        const url = document.getElementById('m-url').value;
-        const type = document.getElementById('m-type').value;
-        if(!url) return;
-        await store.add({ url, type, ts: firebase.firestore.FieldValue.serverTimestamp() });
-        document.getElementById('m-url').value = "";
+    async function publishMedia() {
+        const url = document.getElementById('media-url').value;
+        const type = document.getElementById('media-type').value;
+        if(!url) return alert("Veuillez entrer une URL");
+
+        try {
+            await collectionRef.add({
+                url: url,
+                type: type,
+                createdAt: Date.now()
+            });
+            document.getElementById('media-url').value = "";
+            alert("Projet publié avec succès !");
+        } catch(e) {
+            alert("Erreur de publication");
+        }
     }
 
-    render();
+    async function deleteProject(id) {
+        try {
+            await collectionRef.doc(id).delete();
+        } catch(e) {
+            alert("Erreur de suppression");
+        }
+    }
+
+    // Lancement au démarrage
+    loadGallery();
 </script>
+
 </body>
 </html>
