@@ -3,85 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LVD Global Investissement</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>LA VILLA DIONYSIENNE MC</title>
+    
     <style>
-        :root { --or: #FFD700; --noir: #05080a; --gris: #111827; }
-        body { background: var(--noir); color: white; font-family: sans-serif; margin: 0; text-align: center; }
-        header { padding: 30px; border-bottom: 1px solid #1e293b; }
-        .logo { width: 70px; height: 70px; background: white; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; color: black; font-weight: bold; border: 2px solid var(--or); }
-        h1 { color: var(--or); font-size: 1.1rem; letter-spacing: 2px; margin: 5px 0; }
-        .socials { display: grid; grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); gap: 10px; max-width: 500px; margin: 20px auto; padding: 10px; }
-        .socials a { text-decoration: none; color: white; display: flex; flex-direction: column; align-items: center; font-size: 0.6rem; font-weight: bold; }
-        .socials i { font-size: 1.6rem; margin-bottom: 5px; }
-        .fa-whatsapp { color: #25D366; } .fa-instagram { color: #E4405F; } .fa-facebook { color: #1877F2; } 
-        .fa-x-twitter { color: white; } .fa-map-marker-alt { color: #EA4335; }
-        .google-c { background: linear-gradient(to right, #4285F4, #EA4335, #FBBC05, #34A853); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; padding: 15px; }
-        .card { background: var(--gris); border-radius: 8px; overflow: hidden; position: relative; border: 1px solid #1e293b; }
-        .card img, .card iframe { width: 100%; aspect-ratio: 16/9; display: block; border: none; }
-        .admin-btn { background: none; border: none; color: #222; font-size: 1.2rem; cursor: pointer; margin: 40px 0; }
-        #panel { display: none; background: #0f172a; padding: 20px; border-radius: 10px; border: 1px solid var(--or); max-width: 350px; margin: 20px auto; }
-        input, select { width: 100%; padding: 10px; margin: 5px 0; background: #000; border: 1px solid #333; color: #fff; box-sizing: border-box; }
-        .save { background: var(--or); color: black; border: none; padding: 10px; width: 100%; font-weight: bold; cursor: pointer; margin-top: 10px; }
-        .del { position: absolute; top: 5px; right: 5px; background: red; color: white; border: none; padding: 5px; border-radius: 3px; cursor: pointer; }
-        footer { padding: 20px; font-size: 9px; opacity: 0.3; }
+        :root {
+            --or: #FFD700; 
+            --vert: #00FF7F; 
+            --fond-bleu: #1f2a38; 
+            --fond-header: #2c3e50; 
+            --blanc: #ecf0f1; 
+            --noir-profond: #111827; 
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--fond-bleu);
+            color: var(--blanc);
+            line-height: 1.6;
+        }
+        
+        header { 
+            background-color: var(--fond-header); 
+            padding: 25px 20px; 
+            position: sticky; top: 0; z-index: 1000; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); 
+            text-align: center;
+        }
+
+        /* LOGO LVD CORRIGÉ */
+        .logo-lvd { 
+            height: 80px; width: 80px; 
+            background: white; 
+            border-radius: 50%; 
+            margin: 0 auto 10px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            font-size: 1.8rem; 
+            color: #000; 
+            font-weight: 900; 
+            border: 4px solid var(--or);
+        }
+
+        h1 { font-size: 1.1rem; color: var(--or); text-transform: uppercase; letter-spacing: 2px; }
+
+        .hero-section { background-color: var(--noir-profond); padding: 40px 20px; text-align: center; border-bottom: 3px solid var(--vert); }
+        
+        /* BARRE DES RÉSEAUX SOCIAUX COMPLÈTE */
+        .social-bar { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin: 20px auto; max-width: 600px; }
+        .social-bar a { 
+            width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; 
+            border-radius: 12px; background: rgba(255,255,255,0.1); transition: 0.3s;
+        }
+        .social-bar a:hover { transform: translateY(-5px); background: rgba(255,255,255,0.2); }
+        .social-bar svg { width: 26px; height: 26px; fill: white; }
+
+        section { padding: 40px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
+        h2 { color: var(--or); text-transform: uppercase; margin-bottom: 30px; letter-spacing: 2px; }
+
+        /* GRILLE GALERIE */
+        .grid-galerie { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .item-card { background: #111; border-radius: 15px; overflow: hidden; border: 1px solid #333; position: relative; }
+        .item-card img, .item-card iframe { width: 100%; aspect-ratio: 1/1; display: block; border: none; object-fit: cover; }
+
+        /* ADMINISTRATION DISCRÈTE */
+        .admin-panel { margin: 20px auto; padding: 25px; background: #000; border-radius: 20px; border: 2px dashed var(--or); display: none; max-width: 400px; }
+        .field { width: 100%; padding: 15px; margin: 10px 0; border-radius: 10px; border: 1px solid #444; background: #111; color: #fff; font-size: 16px; }
+        .btn-action { background: var(--or); color: #000; font-weight: bold; padding: 15px; border: none; border-radius: 10px; cursor: pointer; text-transform: uppercase; width: 100%; }
+        .hidden { display: none; }
+        .btn-suppr { position: absolute; top: 10px; right: 10px; background: #ff4757; color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; font-weight: bold; }
+
+        footer { padding: 60px 20px; color: #555; font-size: 12px; text-align: center; position: relative; }
+        /* POINT D'ACCÈS SECRET */
+        .secret-trigger { position: absolute; bottom: 10px; right: 10px; width: 30px; height: 30px; cursor: pointer; opacity: 0; }
     </style>
 </head>
 <body>
+
     <header>
-        <div class="logo">LVD</div>
+        <div class="logo-lvd">LVD</div>
         <h1>LA VILLA DIONYSIENNE MC</h1>
     </header>
-    <div class="socials">
-        <a href="https://wa.me/2693246465"><i class="fab fa-whatsapp"></i>WHATSAPP</a>
-        <a href="https://www.instagram.com/la_villa_dionysienne"><i class="fab fa-instagram"></i>INSTAGRAM</a>
-        <a href="https://www.facebook.com/share/1FcL1xJvfv/"><i class="fab fa-facebook"></i>FACEBOOK</a>
-        <a href="https://www.tiktok.com/@la_villa_dionysienne"><i class="fab fa-tiktok"></i>TIKTOK</a>
-        <a href="https://x.com/LDyonisienne"><i class="fab fa-x-twitter"></i>X</a>
-        <a href="https://www.google.com/maps?q=LA+VILLA+DIONYSIENNE+MC"><i class="fas fa-map-marker-alt"></i>ADRESSE</a>
-        <a href="https://www.google.com/search?q=LA+VILLA+DIONYSIENNE+MC"><i class="fab fa-google google-c"></i>GOOGLE</a>
-    </div>
-    <div id="gal" class="gallery"></div>
-    <button class="admin-btn" onclick="ask()"><i class="fas fa-lock"></i></button>
-    <div id="panel">
-        <input type="password" id="pw" placeholder="Code">
-        <button class="save" onclick="login()">ENTRER</button>
-        <div id="ctrl" style="display:none; margin-top:15px; border-top:1px solid #333; padding-top:15px;">
-            <select id="ty"><option value="img">IMAGE</option><option value="vid">YOUTUBE</option></select>
-            <input type="text" id="url" placeholder="Lien URL">
-            <button class="save" onclick="add()">PUBLIER</button>
+
+    <div class="hero-section">
+        <h2>NOS RÉSEAUX & PROJETS</h2>
+        
+        <div class="social-bar">
+            <!-- WhatsApp -->
+            <a href="https://wa.me/2693246465" style="background:#25D366">
+                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.396.015 12.03c0 2.123.548 4.197 1.591 6.027L0 24l6.135-1.61a11.802 11.802 0 005.911 1.586h.005c6.637 0 12.032-5.396 12.036-12.03a11.817 11.817 0 00-3.417-8.435z"/></svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/la_villa_dionysienne" style="background:#E4405F">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12s.014 3.667.072 4.947c.2 4.353 2.612 6.773 6.973 6.973 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c4.351-.2 6.77-2.618 6.97-6.973.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.2-4.353-2.612-6.77-6.973-6.973C15.667.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <!-- TikTok -->
+            <a href="https://www.tiktok.com/@la_villa_dionysienne" style="background:#000">
+                <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.9-.32-1.98-.23-2.81.31-.75.42-1.24 1.25-1.31 2.1-.01.56.06 1.12.33 1.62.4.81 1.22 1.44 2.13 1.61.91.17 1.89-.1 2.59-.74.7-.61 1.05-1.59 1.05-2.51V.02z"/></svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/share/1FcL1xJvfv/" style="background:#1877F2">
+                <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <!-- Threads -->
+            <a href="https://www.threads.net/@la_villa_dionysienne" style="background:#000; border: 1px solid #444;">
+                <svg viewBox="0 0 24 24"><path d="M14.88 11.53c-.07-.07-.15-.14-.24-.2s-.18-.12-.28-.16-.21-.08-.31-.1-.21-.03-.32-.03-.22.01-.32.03-.21.05-.31.1-.2.1-.28.16-.16.13-.23.2-.13.15-.19.23-.11.17-.15.27-.08.2-.1.3-.04.22-.04.34 0 .11.01.23.04.22.07.33.07.21.13.31.11.19.2.27.16.15.25.21.2.11.31.16.23.07.35.09.24.01.37 0 .25-.03.38-.08.24-.09.35-.17.21-.15.3-.24.16-.18.23-.3.12-.24.17-.39.08-.3.09-.46 0-.16-.01-.32-.04-.32-.09-.47-.07-.29-.17-.44-.19-.15-.36-.28zm-2.83 5.4c-.17 0-.34-.01-.52-.03-.17-.02-.35-.06-.52-.1-.17-.05-.34-.11-.5-.19-.16-.08-.31-.18-.45-.3-.14-.12-.26-.26-.37-.41-.11-.15-.2-.33-.27-.52-.07-.19-.11-.4-.14-.63-.02-.23-.03-.48-.03-.76 0-.27.01-.52.03-.76.02-.23.06-.44.13-.64.07-.19.16-.37.28-.52.11-.15.24-.29.39-.41.14-.12.3-.22.47-.3.17-.08.34-.14.53-.19.18-.04.36-.08.54-.09.18-.02.35-.03.52-.03.17 0 .34.01.52.03.17.02.35.06.52.09.17.05.34.11.5.19.16.08.31.18.45.3.14.12.26.26.37.41.11.15.2.33.27.52.07.19.11.41.13.64.03.23.04.48.04.76 0 .27-.01.52-.03.76-.02.23-.06.44-.13.63-.07.19-.16.37-.28.52-.11.15-.24.29-.39.41-.14.12-.3.22-.47.3-.17.08-.34.14-.53.19-.18.04-.36.08-.54.1-.18.02-.35.03-.52.03z"/></svg>
+            </a>
+            <!-- Maps -->
+            <a href="https://www.google.com/maps?q=LA+VILLA+DIONYSIENNE+MC" style="background:#EA4335">
+                <svg viewBox="0 0 24 24"><path d="M12 0C7.802 0 4.396 3.406 4.396 7.604c0 1.57.481 3.024 1.3 4.237l6.304 12.159 6.304-12.159c.819-1.213 1.3-2.667 1.3-4.237C19.604 3.406 16.198 0 12 0zm0 11.406c-2.1 0-3.802-1.703-3.802-3.802 0-2.1 1.702-3.802 3.802-3.802 2.1 0 3.802 1.702 3.802 3.802 0 2.1-1.702 3.802-3.802 3.802z"/></svg>
+            </a>
         </div>
     </div>
-    <footer>&copy; 2025 LVD GLOBAL</footer>
+
+    <section id="galerie">
+        <h2>RÉALISATIONS RÉCENTES</h2>
+        <div id="gal-cont" class="grid-galerie">
+            <p style="opacity: 0.3;">Connexion à la base de données...</p>
+        </div>
+
+        <div id="admin-ui" class="admin-panel">
+            <div id="login">
+                <h3 style="color:var(--or); margin-bottom:15px;">PANNEAU DE GESTION</h3>
+                <input type="password" id="pass" placeholder="Code d'accès" class="field">
+                <button onclick="checkAdmin()" class="btn-action">Ouvrir</button>
+            </div>
+            <div id="upload" class="hidden">
+                <h3 style="color:var(--vert); margin-bottom:15px;">PUBLIER UN MÉDIA</h3>
+                <select id="type" class="field">
+                    <option value="image">IMAGE (Lien Postimages)</option>
+                    <option value="video">YOUTUBE (Lien Vidéo)</option>
+                </select>
+                <input type="text" id="url" placeholder="Lien ici" class="field">
+                <button onclick="addMe()" class="btn-action" style="background:var(--vert)">Envoyer</button>
+                <p onclick="location.reload()" style="color:gray; cursor:pointer; margin-top:20px; font-size:12px; text-decoration:underline;">Fermer la session</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 LA VILLA DIONYSIENNE MC.
+        <!-- LE BOUTON SECRET EST ICI -->
+        <div class="secret-trigger" onclick="showAdmin()"></div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-auth-compat.js"></script>
+
     <script>
-        let db = JSON.parse(localStorage.getItem('lvd_v5') || '[]');
-        let adm = false;
-        function ask() { document.getElementById('panel').style.display = 'block'; }
-        function login() {
-            if(document.getElementById('pw').value.toUpperCase()==="LVD2024"){
-                adm=true; document.getElementById('ctrl').style.display='block'; show();
-            } else { alert("Non"); }
+        const cfg = JSON.parse(__firebase_config);
+        firebase.initializeApp(cfg);
+        const db = firebase.firestore();
+        const aId = typeof __app_id !== 'undefined' ? __app_id : 'lvd-v5-final';
+        const galRef = db.collection('artifacts').doc(aId).collection('public').doc('data').collection('gallery');
+
+        let isAdmin = false;
+
+        firebase.auth().signInAnonymously().then(() => { refresh(); });
+
+        function showAdmin() {
+            document.getElementById('admin-ui').style.display = 'block';
+            window.scrollTo(0, document.body.scrollHeight);
         }
-        function show() {
-            const g = document.getElementById('gal');
-            g.innerHTML = db.map((h, i) => `
-                <div class="card">
-                    ${h.type==='vid'?<iframe src="https://www.youtube.com/embed/${getID(h.url)}"></iframe>:<img src="${h.url}">}
-                    ${adm?<button class="del" onclick="del(${i})">X</button>:''}
-                </div>
-            `).join('');
+
+        function checkAdmin() {
+            if(document.getElementById('pass').value === "1234") { // Code par défaut
+                isAdmin = true;
+                document.getElementById('login').classList.add('hidden');
+                document.getElementById('upload').classList.remove('hidden');
+                refresh();
+            } else {
+                alert("Code incorrect");
+            }
         }
-        function getID(u) { const m = u.match(/[?&]v=([^&#]+)/) || u.match(/youtu\.be\/([^?&#]+)/); return m?m[1]:''; }
-        function add() {
-            const u=document.getElementById('url').value;
-            const t=document.getElementById('ty').value;
-            if(!u)return; db.unshift({url:u,type:t});
-            localStorage.setItem('lvd_v5', JSON.stringify(db));
-            document.getElementById('url').value=""; show();
+
+        function refresh() {
+            galRef.orderBy('date', 'desc').onSnapshot(snap => {
+                const cont = document.getElementById('gal-cont');
+                cont.innerHTML = snap.empty ? "<p style='opacity:0.2'>Aucun média.</p>" : "";
+                
+                snap.forEach(doc => {
+                    const item = doc.data();
+                    const card = document.createElement('div');
+                    card.className = "item-card";
+                    
+                    if(item.type === 'video') {
+                        let vId = item.url.includes('v=') ? item.url.split('v=')[1].split('&')[0] : item.url.split('/').pop();
+                        card.innerHTML = <iframe src="https://www.youtube.com/embed/${vId}" allowfullscreen></iframe>;
+                    } else {
+                        card.innerHTML = <img src="${item.url}" onerror="this.src='https://placehold.co/600x600/111/FFD700?text=Erreur+Lien'">;
+                    }
+
+                    if(isAdmin) {
+                        const del = document.createElement('button');
+                        del.className = "btn-suppr";
+                        del.innerText = "X";
+                        del.onclick = () => { if(confirm("Supprimer ?")) doc.ref.delete(); };
+                        card.appendChild(del);
+                    }
+                    cont.appendChild(card);
+                });
+            });
         }
-        function del(i) { if(confirm("Supprimer?")){db.splice(i,1); localStorage.setItem('lvd_v5', JSON.stringify(db)); show();} }
-        show();
+
+        async function addMe() {
+            const val = document.getElementById('url').value.trim();
+            if(!val) return;
+            try {
+                await galRef.add({ 
+                    url: val, 
+                    type: document.getElementById('type').value, 
+                    date: firebase.firestore.FieldValue.serverTimestamp() 
+                });
+                document.getElementById('url').value = "";
+            } catch(e) { alert("Erreur d'envoi"); }
+        }
     </script>
 </body>
 </html>
