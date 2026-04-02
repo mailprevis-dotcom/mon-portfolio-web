@@ -3,153 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LVD Global Investissement</title>
+    <title>LVD GLOBAL INVESTISSEMENT</title>
     
-    <!-- Scripts de base -->
+    <!-- Scripts Firebase -->
     <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-auth-compat.js"></script>
+    
+    <!-- Font Awesome pour les logos réseaux sociaux -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
-        :root { --or: #FFD700; --fond: #05080a; --carte: #111827; }
-        body { background: var(--fond); color: white; font-family: sans-serif; margin: 0; text-align: center; }
+        body { 
+            background-color: #050a0f; 
+            color: white; 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            text-align: center; 
+            padding-bottom: 50px;
+        }
         
-        /* Header */
-        header { padding: 30px 15px; border-bottom: 1px solid #1e293b; }
-        .logo-lvd { width: 60px; height: 60px; background: white; color: black; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-weight: bold; border: 2px solid var(--or); }
-        h1 { color: var(--or); font-size: 1rem; letter-spacing: 1px; margin: 0; }
+        .header { padding: 30px; border-bottom: 1px solid #1a2635; }
+        .logo-circle { 
+            width: 80px; height: 80px; background: white; color: black; 
+            border-radius: 50%; margin: 0 auto 15px; 
+            display: flex; align-items: center; justify-content: center; 
+            font-weight: bold; border: 3px solid #FFD700; font-size: 20px;
+        }
+        h1 { color: #FFD700; font-size: 1.2rem; margin: 0; letter-spacing: 2px; }
 
-        /* RÉSEAUX SOCIAUX (TOUS RÉTABLIS) */
-        .social-box { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; padding: 20px; }
-        .social-box a { color: white; text-decoration: none; display: flex; flex-direction: column; align-items: center; width: 60px; }
-        .social-box i { font-size: 1.5rem; margin-bottom: 5px; }
-        .fa-whatsapp { color: #25D366; } .fa-instagram { color: #E4405F; } .fa-facebook { color: #1877F2; }
-        .fa-tiktok { color: #fff; } .fa-x-twitter { color: #fff; } .fa-map-marker-alt { color: #EA4335; }
-        .g-color { background: linear-gradient(to right, #4285F4, #EA4335, #FBBC05, #34A853); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .social-box span { font-size: 7px; font-weight: bold; }
+        /* RÉSEAUX SOCIAUX - GRANDS ET VISIBLES */
+        .social-container { 
+            display: flex; justify-content: center; gap: 20px; 
+            flex-wrap: wrap; padding: 25px; max-width: 500px; margin: 0 auto;
+        }
+        .social-link { 
+            text-decoration: none; color: white; 
+            display: flex; flex-direction: column; align-items: center; width: 70px;
+        }
+        .social-link i { font-size: 30px; margin-bottom: 8px; }
+        .fa-whatsapp { color: #25D366; }
+        .fa-instagram { color: #E4405F; }
+        .fa-facebook { color: #1877F2; }
+        .fa-tiktok { color: white; }
+        .fa-x-twitter { color: white; }
+        .fa-map-marker-alt { color: #EA4335; }
+        .fa-google { color: #FBBC05; }
+        .social-link span { font-size: 9px; font-weight: bold; text-transform: uppercase; }
 
-        /* Galerie */
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; padding: 15px; }
-        .item { background: var(--carte); border-radius: 8px; overflow: hidden; border: 1px solid #1e293b; position: relative; }
-        .item img, .item iframe { width: 100%; aspect-ratio: 16/9; border: none; display: block; }
+        /* GALERIE */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; padding: 20px; }
+        .card { background: #111b27; border-radius: 10px; overflow: hidden; border: 1px solid #1e293b; position: relative; }
+        .card img, .card iframe { width: 100%; aspect-ratio: 16/9; display: block; border: none; }
 
-        /* ZONE GESTION (TOUT EN BAS) */
-        .admin-area { margin: 50px 0; padding: 30px; border-top: 1px solid #1e293b; background: #080c14; }
-        .input-style { width: 100%; max-width: 300px; padding: 12px; margin: 10px 0; border-radius: 5px; border: 1px solid #333; background: #000; color: white; }
-        .btn-post { background: var(--or); color: black; border: none; padding: 12px 25px; border-radius: 5px; font-weight: bold; cursor: pointer; width: 100%; max-width: 300px; }
-        
+        /* ZONE ADMIN - TRÈS SIMPLE */
+        .admin-zone { 
+            background: #0a1219; border-top: 2px solid #FFD700; 
+            padding: 40px 20px; margin-top: 50px;
+        }
+        .input-field { 
+            width: 100%; max-width: 300px; padding: 15px; 
+            margin: 10px 0; border-radius: 8px; border: 1px solid #333; 
+            background: #000; color: white; font-size: 16px;
+        }
+        .login-btn { 
+            background: #FFD700; color: black; border: none; 
+            padding: 15px 30px; border-radius: 8px; font-weight: bold; 
+            cursor: pointer; width: 100%; max-width: 300px; font-size: 16px;
+        }
         .hidden { display: none; }
-        .delete { position: absolute; top: 5px; right: 5px; background: red; color: white; border: none; padding: 5px; border-radius: 3px; cursor: pointer; font-size: 10px; }
+        .delete-btn { position: absolute; top: 10px; right: 10px; background: red; color: white; border: none; border-radius: 5px; padding: 5px 10px; cursor: pointer; }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo-lvd">LVD</div>
+    <div class="header">
+        <div class="logo-circle">LVD</div>
         <h1>LA VILLA DIONYSIENNE MC</h1>
-        <p style="font-size: 0.6rem; opacity: 0.5; letter-spacing: 3px;">GLOBAL INVESTISSEMENT</p>
-    </header>
-
-    <div class="social-box">
-        <a href="https://wa.me/2693246465"><i class="fab fa-whatsapp"></i><span>WHATSAPP</span></a>
-        <a href="https://www.instagram.com/la_villa_dionysienne"><i class="fab fa-instagram"></i><span>INSTAGRAM</span></a>
-        <a href="https://www.facebook.com/share/1FcL1xJvfv/"><i class="fab fa-facebook"></i><span>FACEBOOK</span></a>
-        <a href="https://www.tiktok.com/@la_villa_dionysienne"><i class="fab fa-tiktok"></i><span>TIKTOK</span></a>
-        <a href="https://x.com/LDyonisienne"><i class="fab fa-x-twitter"></i><span>X</span></a>
-        <a href="https://www.google.com/maps?q=LA+VILLA+DIONYSIENNE+MC"><i class="fas fa-map-marker-alt"></i><span>ADRESSE</span></a>
-        <a href="https://www.google.com/search?q=LA+VILLA+DIONYSIENNE+MC"><i class="fab fa-google g-color"></i><span>GOOGLE</span></a>
+        <p style="font-size: 10px; opacity: 0.6; letter-spacing: 4px;">GLOBAL INVESTISSEMENT</p>
     </div>
 
-    <h2 style="font-weight: 300; font-size: 1rem; letter-spacing: 2px;">RÉALISATIONS</h2>
-    <div id="gallery-container" class="grid">
-        <p style="opacity:0.2">Chargement du contenu...</p>
+    <!-- RÉSEAUX SOCIAUX -->
+    <div class="social-container">
+        <a href="https://wa.me/2693246465" class="social-link"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
+        <a href="https://www.instagram.com/la_villa_dionysienne" class="social-link"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+        <a href="https://www.facebook.com/share/1FcL1xJvfv/" class="social-link"><i class="fab fa-facebook"></i><span>Facebook</span></a>
+        <a href="https://www.tiktok.com/@la_villa_dionysienne" class="social-link"><i class="fab fa-tiktok"></i><span>TikTok</span></a>
+        <a href="https://x.com/LDyonisienne" class="social-link"><i class="fab fa-x-twitter"></i><span>X</span></a>
+        <a href="https://www.google.com/maps?q=LA+VILLA+DIONYSIENNE+MC" class="social-link"><i class="fas fa-map-marker-alt"></i><span>Adresse</span></a>
+        <a href="https://www.google.com/search?q=LA+VILLA+DIONYSIENNE+MC" class="social-link"><i class="fab fa-google"></i><span>Google</span></a>
     </div>
 
-    <div class="admin-area">
-        <div id="login-form">
-            <p style="font-size: 10px; opacity: 0.4;">ESPACE GESTION</p>
-            <input type="password" id="pass" class="input-style" placeholder="Tapez le code ici..." oninput="autoCheck()">
-            <p id="err" style="color:red; font-size:10px; display:none;">Code incorrect</p>
+    <h2 style="font-weight: normal; letter-spacing: 2px;">NOS RÉALISATIONS</h2>
+    
+    <div id="gallery" class="gallery">
+        <!-- Les photos apparaîtront ici -->
+        <p style="opacity:0.3">Chargement du portfolio...</p>
+    </div>
+
+    <!-- ZONE D'ADMINISTRATION -->
+    <div class="admin-zone">
+        <!-- Étape 1 : Connexion -->
+        <div id="login-box">
+            <h3>ACCÈS GESTION</h3>
+            <input type="password" id="pass" class="input-field" placeholder="Entrez le mot de passe">
+            <button class="login-btn" onclick="connexion()">SE CONNECTER</button>
         </div>
 
-        <div id="upload-form" class="hidden">
-            <h4 style="color:var(--or)">PUBLIER</h4>
-            <select id="m-type" class="input-style">
-                <option value="img">IMAGE</option>
-                <option value="vid">YOUTUBE</option>
+        <!-- Étape 2 : Publication (Caché au début) -->
+        <div id="upload-box" class="hidden">
+            <h3 style="color:#FFD700">PUBLIER UN PROJET</h3>
+            <select id="type" class="input-field">
+                <option value="img">IMAGE (Lien URL)</option>
+                <option value="vid">VIDÉO YOUTUBE (Lien URL)</option>
             </select>
-            <input type="text" id="m-url" class="input-style" placeholder="Collez le lien ici">
-            <button class="btn-post" onclick="send()">ENREGISTRER</button>
-            <br><br>
-            <button onclick="location.reload()" style="background:none; border:none; color:gray; font-size:10px; cursor:pointer;">DÉCONNEXION</button>
+            <input type="text" id="url" class="input-field" placeholder="Collez le lien ici">
+            <button class="login-btn" onclick="publier()">METTRE EN LIGNE</button>
+            <p><button onclick="location.reload()" style="background:none; border:none; color:gray; cursor:pointer; font-size:12px;">Déconnexion</button></p>
         </div>
     </div>
 
     <script>
-        // Initialisation Firebase
+        // Configuration Firebase
         const firebaseConfig = JSON.parse(__firebase_config);
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'lvd-v1';
-        const gallery = db.collection('artifacts').doc(appId).collection('public').doc('data').collection('items');
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'lvd-global-final';
+        const col = db.collection('artifacts').doc(appId).collection('public').doc('data').collection('gallery');
 
-        let isLogged = false;
+        let logged = false;
 
+        // Connexion anonyme pour les droits de lecture/écriture
         firebase.auth().signInAnonymously();
 
-        // Vérification automatique sans bouton
-        function autoCheck() {
-            const val = document.getElementById('pass').value.toUpperCase();
-            if(val === "LVD2024") {
-                isLogged = true;
-                document.getElementById('login-form').classList.add('hidden');
-                document.getElementById('upload-form').classList.remove('hidden');
-                render();
-            } else if (val.length >= 7) {
-                document.getElementById('err').style.display = "block";
+        function connexion() {
+            const mdp = document.getElementById('pass').value;
+            if(mdp.toUpperCase() === "LVD2024") {
+                logged = true;
+                document.getElementById('login-box').classList.add('hidden');
+                document.getElementById('upload-box').classList.remove('hidden');
+                chargerImages(); // Rafraîchir pour voir les boutons supprimer
+            } else {
+                alert("Mot de passe incorrect");
             }
         }
 
-        function render() {
-            gallery.orderBy('date', 'desc').onSnapshot(snap => {
-                const container = document.getElementById('gallery-container');
+        function chargerImages() {
+            col.orderBy('date', 'desc').onSnapshot(snap => {
+                const container = document.getElementById('gallery');
                 container.innerHTML = "";
                 snap.forEach(doc => {
-                    const d = doc.data();
-                    const div = document.createElement('div');
-                    div.className = "item";
+                    const data = doc.data();
+                    const card = document.createElement('div');
+                    card.className = "card";
                     
-                    if(d.type === 'vid') {
-                        const id = d.url.split('v=')[1] || d.url.split('/').pop();
-                        div.innerHTML = <iframe src="https://www.youtube.com/embed/${id}"></iframe>;
+                    if(data.type === 'vid') {
+                        // Extraire l'ID Youtube (fonctionne avec les liens courts et longs)
+                        const id = data.url.split('v=')[1] || data.url.split('/').pop();
+                        card.innerHTML = <iframe src="https://www.youtube.com/embed/${id}" allowfullscreen></iframe>;
                     } else {
-                        div.innerHTML = <img src="${d.url}">;
+                        card.innerHTML = <img src="${data.url}" onerror="this.src='https://placehold.co/600x400/111b27/FFFFFF?text=Lien+image+invalide'">;
                     }
 
-                    if(isLogged) {
-                        const b = document.createElement('button');
-                        b.className = "delete"; b.innerText = "SUPPRIMER";
-                        b.onclick = () => { if(confirm("Effacer ?")) doc.ref.delete(); };
-                        div.appendChild(b);
+                    if(logged) {
+                        const btn = document.createElement('button');
+                        btn.className = "delete-btn";
+                        btn.innerText = "Supprimer";
+                        btn.onclick = () => { if(confirm("Effacer ?")) doc.ref.delete(); };
+                        card.appendChild(btn);
                     }
-                    container.appendChild(div);
+                    container.appendChild(card);
                 });
             });
         }
 
-        async function send() {
-            const u = document.getElementById('m-url').value;
-            const t = document.getElementById('m-type').value;
-            if(!u) return;
+        async function publier() {
+            const url = document.getElementById('url').value;
+            const type = document.getElementById('type').value;
+            if(!url) return alert("Veuillez mettre un lien");
+
             try {
-                await gallery.add({ url: u, type: t, date: firebase.firestore.FieldValue.serverTimestamp() });
-                document.getElementById('m-url').value = "";
-                alert("Publié !");
-            } catch(e) { alert("Erreur"); }
+                await col.add({
+                    url: url,
+                    type: type,
+                    date: firebase.firestore.FieldValue.serverTimestamp()
+                });
+                document.getElementById('url').value = "";
+                alert("Réussi ! Votre projet est en ligne.");
+            } catch(e) {
+                alert("Erreur lors de l'enregistrement.");
+            }
         }
 
-        render();
+        // Démarrage
+        chargerImages();
     </script>
+
 </body>
 </html>
