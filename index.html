@@ -2,232 +2,166 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>LA VILLA DIONYSIENNE MC - Global Investissement</title>
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LVD GLOBAL INVESTISSEMENT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         :root {
-            --gold: #FFD700; 
-            --green: #00FF7F; 
-            --bg-dark: #111827; 
-            --bg-card: #1f2a38; 
-            --text: #ecf0f1; 
+            --or: #FFD700;
+            --vert: #00FF7F;
+            --fond: #111827;
+            --carte: #1f2a38;
+            --texte: #ecf0f1;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: var(--fond); color: var(--texte); overflow-x: hidden; }
 
-        body { background-color: var(--bg-dark); color: var(--text); line-height: 1.6; }
+        .header { background: var(--carte); padding: 20px; text-align: center; border-bottom: 2px solid var(--or); box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        .logo-c { height: 60px; width: 60px; background: #fff; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--or); border: 2px solid var(--or); }
         
-        .header { 
-            background-color: var(--bg-card); 
-            padding: 20px 0; 
-            position: sticky; top: 0; z-index: 1000; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
-            text-align: center;
-        }
-        
-        .logo-circle { 
-            height: 60px; width: 60px; background: #fff; border-radius: 50%; 
-            margin: 0 auto 10px; display: flex; align-items: center; justify-content: center;
-            font-size: 1.2rem; color: var(--gold); font-weight: bold; border: 2px solid var(--gold);
-        }
+        .hero { padding: 40px 20px; text-align: center; background: #000; border-bottom: 4px solid var(--vert); }
+        .hero h2 { color: var(--or); text-transform: uppercase; margin-bottom: 15px; }
 
-        .header h1 { font-size: 1rem; color: var(--gold); text-transform: uppercase; padding: 0 10px; }
-
-        .hero { padding: 50px 20px; text-align: center; border-bottom: 4px solid var(--green); }
-        .hero h2 { color: var(--gold); font-size: 1.8rem; margin-bottom: 15px; }
-        
-        .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 25px auto; max-width: 400px; }
-        .stat-box { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; border: 1px solid var(--green); }
-        .stat-num { display: block; font-size: 1.4rem; font-weight: bold; color: var(--gold); }
-
-        .social-bar { display: flex; justify-content: center; gap: 25px; margin-top: 20px; }
-        .social-bar a { font-size: 2.2rem; text-decoration: none; }
+        .social-links { display: flex; justify-content: center; gap: 25px; margin-top: 15px; }
+        .social-links a { font-size: 2.2rem; text-decoration: none; transition: 0.3s; }
         .fa-whatsapp { color: #25D366; }
         .fa-instagram { color: #E4405F; }
         .fa-facebook { color: #1877F2; }
 
-        .galerie { padding: 40px 15px; background: #0f172a; text-align: center; }
-        .galerie h2 { color: var(--gold); margin-bottom: 25px; border-bottom: 2px solid var(--green); display: inline-block; }
-        
-        #cont-photos { display: grid; grid-template-columns: 1fr; gap: 20px; }
-        .card { background: #000; border-radius: 12px; overflow: hidden; border: 1px solid #333; position: relative; }
-        .card img { width: 100%; display: block; }
-        .card iframe { width: 100%; aspect-ratio: 16/9; border: none; }
+        .galerie-container { padding: 30px 15px; min-height: 300px; }
+        #galerie-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .photo-item { background: #000; border-radius: 12px; overflow: hidden; border: 1px solid #333; position: relative; }
+        .photo-item img { width: 100%; display: block; }
+        .photo-item iframe { width: 100%; aspect-ratio: 16/9; border: none; }
 
-        /* ADMIN STYLE */
-        #admin-section { margin-top: 40px; border-top: 1px solid #333; padding-top: 20px; }
-        #btn-login-toggle { background: transparent; color: #555; border: 1px solid #444; padding: 10px; border-radius: 5px; font-size: 10px; cursor: pointer; }
-        
-        #admin-panel { display: none; max-width: 350px; margin: 20px auto; background: #000; padding: 20px; border-radius: 10px; border: 1px solid var(--gold); }
+        /* Admin */
+        .admin-footer { margin-top: 50px; padding: 20px; text-align: center; border-top: 1px solid #333; }
+        #admin-panel { display: none; background: #000; padding: 20px; border-radius: 15px; border: 1px solid var(--or); max-width: 400px; margin: 20px auto; }
         input, select { width: 100%; padding: 12px; margin: 8px 0; border-radius: 8px; border: 1px solid #444; background: #111; color: #fff; font-size: 16px; }
-        .btn-action { background: var(--gold); color: #000; font-weight: bold; width: 100%; padding: 12px; border: none; border-radius: 8px; cursor: pointer; margin-top: 10px; }
+        .btn-lvd { background: var(--or); color: #000; font-weight: bold; width: 100%; padding: 12px; border: none; border-radius: 8px; cursor: pointer; text-transform: uppercase; }
+        .btn-del { position: absolute; top: 10px; right: 10px; background: rgba(255,0,0,0.8); color: #fff; border: none; padding: 8px; border-radius: 5px; cursor: pointer; }
 
-        @media (min-width: 768px) {
-            #cont-photos { grid-template-columns: repeat(2, 1fr); }
-        }
+        @media (min-width: 768px) { #galerie-grid { grid-template-columns: repeat(2, 1fr); } }
     </style>
 </head>
 <body>
 
     <header class="header">
-        <div class="logo-circle">LVD</div>
-        <h1>LA VILLA DIONYSIENNE MC GLOBAL INVESTISSEMENT</h1>
+        <div class="logo-c">LVD</div>
+        <h1>LA VILLA DIONYSIENNE MC GLOBAL</h1>
     </header>
 
     <section class="hero">
-        <h2>NOS RÉALISATIONS</h2>
-        <div class="stats">
-            <div class="stat-box"><span class="stat-num">150+</span>Photos</div>
-            <div class="stat-box"><span class="stat-num">25</span>Vidéos</div>
-        </div>
-        <div class="social-bar">
+        <h2>RÉALISATIONS & EXPLOITS</h2>
+        <div class="social-links">
             <a href="https://wa.me/2693246465"><i class="fab fa-whatsapp"></i></a>
             <a href="https://www.instagram.com/la_villa_dionysienne"><i class="fab fa-instagram"></i></a>
             <a href="https://www.facebook.com/share/1FcL1xJvfv/"><i class="fab fa-facebook"></i></a>
         </div>
     </section>
 
-    <section class="galerie">
-        <h2>PORTFOLIO</h2>
-        <div id="cont-photos">
-            <p style="opacity:0.2">Chargement du portfolio...</p>
+    <div class="galerie-container">
+        <div id="galerie-grid">
+            <!-- Les photos s'afficheront ici sans délai -->
         </div>
+    </div>
 
-        <div id="admin-section">
-            <button id="btn-login-toggle" onclick="document.getElementById('admin-panel').style.display='block'; this.style.display='none'">GÉRER LE SITE</button>
+    <div class="admin-footer">
+        <button onclick="showLogin()" id="btn-adm-start" style="background:transparent; border:none; color:#444; font-size:12px; cursor:pointer;">ACCÈS GESTION</button>
+        
+        <div id="admin-panel">
+            <div id="login-form">
+                <input type="password" id="pass" placeholder="Mot de passe">
+                <button class="btn-lvd" onclick="checkAuth()">Connexion</button>
+            </div>
             
-            <div id="admin-panel">
-                <div id="auth-box">
-                    <input type="password" id="pass" placeholder="Mot de passe">
-                    <button onclick="checkAccess()" class="btn-action">CONNEXION</button>
-                </div>
-                
-                <div id="post-box" style="display:none;">
-                    <h4 style="color:var(--gold); margin-bottom:10px;">AJOUTER UN CONTENU</h4>
-                    <select id="m-type">
-                        <option value="image">IMAGE (Lien URL)</option>
-                        <option value="video">YOUTUBE (Lien URL)</option>
-                    </select>
-                    <input type="url" id="m-url" placeholder="Lien de la photo ou vidéo">
-                    <button onclick="handlePublish()" class="btn-action" style="background:var(--green)">PUBLIER</button>
-                    <button onclick="location.reload()" style="background:none; border:none; color:red; margin-top:15px; font-size:12px; cursor:pointer;">DÉCONNEXION</button>
-                </div>
+            <div id="upload-form" style="display:none;">
+                <h3 style="color:var(--or); margin-bottom:10px;">AJOUTER UN CONTENU</h3>
+                <select id="post-type">
+                    <option value="img">IMAGE (Lien URL)</option>
+                    <option value="vid">YOUTUBE (Lien URL)</option>
+                </select>
+                <input type="url" id="post-url" placeholder="Lien direct (http...)">
+                <button class="btn-lvd" onclick="addPost()" style="background:var(--vert)">Publier</button>
+                <button onclick="location.reload()" style="background:none; border:none; color:red; margin-top:15px; cursor:pointer;">Déconnexion</button>
             </div>
         </div>
-    </section>
+    </div>
 
-    <footer style="text-align:center; padding:30px; background:#000; color:#444; font-size:10px;">
+    <footer style="text-align:center; padding:30px; font-size:10px; color:#333;">
         &copy; 2025 LVD GLOBAL INVESTISSEMENT
     </footer>
 
-    <!-- Firebase SDK -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+    <script>
+        // SYSTEME DE STOCKAGE INDÉPENDANT (Fonctionne même sans internet/cloud)
+        let posts = JSON.parse(localStorage.getItem('lvd_save_v1') || '[]');
+        let isAdmin = false;
 
-        // CONFIGURATION SECURISEE
-        const config = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-lvd';
-        
-        let db, col, isAdmin = false;
-        let localData = JSON.parse(localStorage.getItem('lvd_backup') || '[]');
+        function showLogin() {
+            document.getElementById('admin-panel').style.display = 'block';
+            document.getElementById('btn-adm-start').style.display = 'none';
+        }
 
-        async function init() {
-            const container = document.getElementById('cont-photos');
-
-            // TEST SI CONFIGURATION DISPONIBLE
-            if (!config.apiKey) {
-                console.warn("Mode local activé (Firebase non configuré sur ce domaine)");
-                render(localData);
-                return;
-            }
-
-            try {
-                const app = initializeApp(config);
-                db = getFirestore(app);
-                const auth = getAuth(app);
-                col = collection(db, 'artifacts', appId, 'public', 'data', 'lvd_final_v5');
-                
-                await signInAnonymously(auth);
-                
-                onSnapshot(col, (snap) => {
-                    let items = [];
-                    snap.forEach(d => items.push({id: d.id, ...d.data()}));
-                    items.sort((a,b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
-                    render(items);
-                    localStorage.setItem('lvd_backup', JSON.stringify(items));
-                });
-            } catch (e) {
-                render(localData);
+        function checkAuth() {
+            const p = document.getElementById('pass').value.toUpperCase();
+            if(p === "LVD2024") {
+                isAdmin = true;
+                document.getElementById('login-form').style.display = 'none';
+                document.getElementById('upload-form').style.display = 'block';
+                render();
+                alert("Accès Gestionnaire Activé");
+            } else {
+                alert("Mot de passe incorrect");
             }
         }
 
-        function render(data) {
-            const container = document.getElementById('cont-photos');
-            if(data.length === 0) {
-                container.innerHTML = '<p style="opacity:0.2; padding:40px;">AUCUN PROJET</p>';
+        function render() {
+            const grid = document.getElementById('galerie-grid');
+            if(posts.length === 0) {
+                grid.innerHTML = '<p style="text-align:center; opacity:0.2; grid-column:1/-1; padding:50px;">AUCUNE PHOTO PUBLIÉE</p>';
                 return;
             }
-            container.innerHTML = data.map(item => `
-                <div class="card">
-                    ${item.type === 'video' ? 
+
+            grid.innerHTML = posts.map((item, index) => `
+                <div class="photo-item">
+                    ${item.type === 'vid' ? 
                         <iframe src="https://www.youtube.com/embed/${getYTId(item.url)}" allowfullscreen></iframe> : 
-                        <img src="${item.url}" onerror="this.src='https://placehold.co/400x300?text=Image+Introuvable'">
+                        <img src="${item.url}" onerror="this.src='https://placehold.co/400x300?text=Lien+Image+Invalide'">
                     }
-                    ${isAdmin ? <button onclick="window.removePost('${item.id}')" style="position:absolute; top:10px; right:10px; background:red; color:white; border:none; padding:8px; border-radius:5px; cursor:pointer;"><i class="fas fa-trash"></i></button> : ''}
+                    ${isAdmin ? <button class="btn-del" onclick="deletePost(${index})"><i class="fas fa-trash"></i></button> : ''}
                 </div>
             `).join('');
         }
 
         function getYTId(url) {
-            return url.includes('v=') ? url.split('v=')[1].split('&')[0] : url.split('/').pop();
+            try {
+                return url.includes('v=') ? url.split('v=')[1].split('&')[0] : url.split('/').pop();
+            } catch(e) { return ''; }
         }
 
-        window.checkAccess = () => {
-            if(document.getElementById('pass').value.toUpperCase() === "LVD2024") {
-                isAdmin = true;
-                document.getElementById('auth-box').style.display = 'none';
-                document.getElementById('post-box').style.display = 'block';
-                init(); // Recharge avec les boutons supprimer
-                alert("ACCÈS AUTORISÉ");
-            } else {
-                alert("MOT DE PASSE INCORRECT");
+        function addPost() {
+            const url = document.getElementById('post-url').value.trim();
+            const type = document.getElementById('post-type').value;
+            if(!url) return alert("Veuillez entrer un lien");
+
+            posts.unshift({ url, type, id: Date.now() });
+            localStorage.setItem('lvd_save_v1', JSON.stringify(posts));
+            document.getElementById('post-url').value = '';
+            render();
+            alert("Publié avec succès !");
+        }
+
+        function deletePost(index) {
+            if(confirm("Supprimer ce contenu ?")) {
+                posts.splice(index, 1);
+                localStorage.setItem('lvd_save_v1', JSON.stringify(posts));
+                render();
             }
-        };
+        }
 
-        window.handlePublish = async () => {
-            const url = document.getElementById('m-url').value.trim();
-            const type = document.getElementById('m-type').value;
-            if(!url) return alert("Lien manquant");
-
-            if(col) {
-                await addDoc(col, { url, type, createdAt: serverTimestamp() });
-            } else {
-                localData.unshift({ url, type, id: Date.now().toString() });
-                localStorage.setItem('lvd_backup', JSON.stringify(localData));
-                render(localData);
-            }
-            document.getElementById('m-url').value = '';
-            alert("PUBLIÉ !");
-        };
-
-        window.removePost = async (id) => {
-            if(!confirm("Supprimer ?")) return;
-            if(col) {
-                await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'lvd_final_v5', id));
-            } else {
-                localData = localData.filter(i => i.id !== id);
-                localStorage.setItem('lvd_backup', JSON.stringify(localData));
-                render(localData);
-            }
-        };
-
-        init();
+        // Lancement immédiat au chargement
+        render();
     </script>
 </body>
 </html>
