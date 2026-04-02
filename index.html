@@ -2,380 +2,220 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- NOUVEAU TITRE DE LA PAGE -->
-    <title>LA VILLA DIONYSIENNE MC - Global Investissement</title>
-    
-    <!-- Intégration de Font Awesome pour les icônes -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    
-    <!-- Style CSS intégré pour un thème sombre et mobile-friendly -->
-<style>
-        :root {
-            /* Couleurs du thème sombre "Luxe Tech" */
-            --couleur-principale: #FFD700; /* Or Métallique pour les titres et accents */
-            --couleur-accent-secondaire: #00FF7F; /* Vert Électrique (Néon) pour les ombres dynamiques et les bordures */
-            --couleur-fond-principal: #1f2a38; /* Gris Bleu Foncé (Section Contact) */
-            --couleur-fond-secondaire: #2c3e50; /* Gris Bleu Foncé pour l'entête */
-            --couleur-texte: #ecf0f1; /* Blanc cassé */
-            --couleur-fond-hero: #111827; /* Fond très sombre (Noir Charbon) */
-            --couleur-stat-bg: rgba(44, 62, 80, 0.8);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: var(--couleur-fond-principal);
-            color: var(--couleur-texte);
-            line-height: 1.6;
-        }
-        
-        /* HEADER et Navigation */
-        .header { 
-            background-color: var(--couleur-fond-secondaire); 
-            padding: 20px 0; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); 
-        }
-        .header h1 { 
-            text-align: center; 
-            font-size: 2rem; 
-            color: var(--couleur-principale); /* Or */
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            margin-top: 10px;
-        }
-        .header nav ul { 
-            list-style: none; 
-            text-align: center; 
-            margin-top: 15px; 
-            display: flex;
-            justify-content: center;
-            padding: 0 10px;
-        }
-        .header nav ul li { 
-            margin: 0 15px; 
-        }
-        .header nav ul li a { 
-            color: var(--couleur-texte); 
-            text-decoration: none; 
-            font-weight: 600; 
-            padding: 5px 10px; 
-            transition: color 0.3s; 
-            border-radius: 5px; 
-        }
-        /* Hover: Vert Électrique pour les liens de navigation */
-        .header nav ul li a:hover { 
-            color: var(--couleur-accent-secondaire); 
-        }
-
-        /* Logo Placeholder */
-        .logo-placeholder { 
-            height: 80px; 
-            width: 80px; 
-            background-color: var(--couleur-texte); 
-            border-radius: 50%; 
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--couleur-principale); /* Or */
-            font-weight: bold;
-            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* Ombre Or */
-        }
-
-        /* Général Section */
-        section { 
-            padding: 60px 5%; 
-        }
-        section h2 { 
-            font-size: 2.5rem; 
-            color: var(--couleur-principale); /* Or */
-            margin-bottom: 40px; 
-            padding-bottom: 10px; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-            border-bottom: 2px solid var(--couleur-accent-secondaire); /* Ligne Vert Électrique */
-            display: inline-block; 
-            text-align: center;
-        }
-        .contact h2 { 
-            display: block; 
-            text-align: center;
-        }
-
-
-        /* HERO Section (Accueil) */
-        .hero { 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            text-align: center; 
-            min-height: calc(100vh - 150px); 
-            background-color: var(--couleur-fond-hero); 
-            color: white; 
-            position: relative; 
-            /* Bordure Vert Électrique pour délimiter */
-            border-bottom: 5px solid var(--couleur-accent-secondaire);
-        }
-
-        .hero-content { 
-            z-index: 2; 
-            max-width: 900px; 
-            padding: 20px;
-        }
-
-        .hero-title { 
-            font-size: 3.5rem; 
-            color: var(--couleur-principale); /* Or */
-            text-transform: uppercase; 
-            letter-spacing: 3px; 
-            font-weight: 800; 
-            margin-bottom: 20px; 
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
-        }
-        
-        .hero p {
-            font-size: 1.2rem; 
-            margin-bottom: 30px;
-        }
-
-        /* Statistiques */
-        .stats-container { 
-            display: flex; 
-            justify-content: space-around; 
-            gap: 20px; 
-            margin: 40px auto; 
-            width: 100%; 
-            max-width: 700px;
-        }
-        .stat-item { 
-            background-color: var(--couleur-stat-bg); 
-            padding: 15px 10px; 
-            border-radius: 10px; 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
-            /* Bordure Vert Électrique */
-            border: 1px solid var(--couleur-accent-secondaire); 
-            flex: 1;
-        }
-        .stat-number { 
-            display: block; 
-            font-size: 2rem; 
-            font-weight: bold; 
-            color: var(--couleur-principale); /* Or */
-            line-height: 1; 
-            margin-bottom: 5px; 
-        }
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--couleur-texte);
-        }
-
-        /* Liens Sociaux Hero */
-        .social-hero-links { 
-            margin-top: 40px; 
-            display: flex; 
-            justify-content: center; 
-            gap: 30px; 
-            flex-wrap: wrap; 
-        }
-        .social-hero-links a { 
-            font-size: 3rem; 
-            transition: transform 0.2s, text-shadow 0.2s; 
-        }
-        
-        /* COULEURS ORIGINALES DES ICONES */
-        .social-hero-links a[title="WhatsApp"], 
-        .social-links a[title="WhatsApp"] { color: #25D366; } /* Vert WhatsApp */
-        
-        .social-hero-links a[title="Instagram"], 
-        .social-links a[title="Instagram"] { color: #E4405F; } /* Rose/Rouge Instagram */
-        
-        .social-hero-links a[title="Facebook"], 
-        .social-links a[title="Facebook"] { color: #1877F2; } /* Bleu Facebook */
-        
-        .social-hero-links a[title="Threads"], 
-        .social-links a[title="Threads"] { color: var(--couleur-texte); } /* Blanc/Gris clair pour Threads/X si sur fond sombre */
-        
-        .social-hero-links a[title="X (Twitter)"],
-        .social-links a[title="X (Twitter)"] { color: #ffffff; } /* Blanc pour X/Twitter */
-
-        /* HOVER: Maintien de la couleur originale de l'icône, mais ajout d'une ombre Vert Électrique */
-        .social-hero-links a:hover,
-        .social-links a:hover { 
-            transform: scale(1.2); 
-            text-shadow: 0 0 10px var(--couleur-accent-secondaire);
-        }
-        
-        /* Bouton CTA */
-        .cta-button {
-            display: inline-block; 
-            margin-top: 30px; 
-            background-color: var(--couleur-principale); /* Or */
-            color: var(--couleur-fond-hero); /* Texte noir sur l'or */
-            padding: 12px 25px; 
-            border-radius: 50px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        }
-        .cta-button:hover {
-             /* L'or s'assombrit légèrement, l'ombre passe au Vert Électrique */
-             background-color: #ccac00; 
-             color: var(--couleur-fond-hero);
-             box-shadow: 0 0 20px var(--couleur-accent-secondaire); 
-        }
-
-
-        /* Contact */
-        .contact { 
-            text-align: center; 
-            background-color: var(--couleur-fond-principal); 
-            min-height: 40vh; 
-        }
-        .contact p {
-            margin: 15px 0;
-            font-size: 1.1rem;
-        }
-        .contact-link {
-            color: var(--couleur-principale); /* Or */
-            text-decoration: none;
-            transition: text-decoration 0.2s, color 0.2s;
-        }
-        .contact-link:hover {
-            text-decoration: underline;
-            color: var(--couleur-accent-secondaire); /* Vert Électrique au survol */
-        }
-
-        /* Liens Sociaux Footer */
-        .social-links { 
-            margin-top: 30px; 
-            display: flex;
-            justify-content: center;
-            gap: 15px; 
-            flex-wrap: wrap; 
-        }
-        .social-links h3 { margin-bottom: 15px; color: var(--couleur-principale); }
-        .social-links a { 
-            font-size: 1.8rem; 
-            transition: transform 0.2s, text-shadow 0.2s;
-            display: inline-block;
-        }
-
-        /* Footer */
-        .footer { 
-            background-color: #111; 
-            color: #777; 
-            text-align: center; 
-            padding: 20px 0; 
-            border-top: 2px solid var(--couleur-accent-secondaire); /* Vert Électrique */
-        }
-        
-        /* Media Queries pour la réactivité mobile */
-        @media (max-width: 768px) { 
-            .hero-title { font-size: 2.5rem; }
-            .stats-container { flex-direction: column; max-width: 400px; }
-        }
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>LVD Global - Portfolio Officiel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+        body { background-color: #020617; color: white; font-family: 'Inter', sans-serif; }
+        .gold { color: #FFD700; }
+        .bg-gold { background-color: #FFD700; }
+        .card { background: #0f172a; border-radius: 2rem; overflow: hidden; border: 1px solid #1e293b; transition: transform 0.3s ease; }
+        .tab-active { border-bottom: 3px solid #FFD700; color: #FFD700; font-weight: 900; }
+        .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); }
     </style>
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
 
-    <!-- HEADER: Logo LVD MC (Placeholder) -->
-<header class="header">
-        <div class="logo-placeholder">
-            LVD
+    <!-- HEADER FIXE -->
+    <nav class="p-4 bg-slate-900 border-b border-white/10 flex justify-between items-center sticky top-0 z-50">
+        <div class="flex items-center gap-2">
+            <span class="bg-white text-black px-2 py-0.5 rounded font-black text-[10px]">LVD</span>
+            <span class="gold font-bold text-[10px] tracking-[0.2em] uppercase">Villa Dionysienne</span>
         </div>
-        <!-- NOUVEAU TITRE H1 -->
-        <h1>LA VILLA DIONYSIENNE MC GLOBAL INVESTISSEMENT</h1>
-        <nav>
-            <ul>
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- SECTION 1: ACCUEIL (Hero Section) - Point central du site -->
-<section id="accueil" class="hero">
-        <div class="hero-content">
-            <h2 class="hero-title">DÉCOUVREZ LES EXPLOITS DE NOTRE PARCOURS</h2>
-            
-            <p>
-                Découvrez les exploits de notre parcours sur les réseaux sociaux suivants concernant *LVD Global Investissement*.
-            </p>
-
-            <div class="stats-container">
-                <div class="stat-item">
-                    <span class="stat-number">150+</span>
-                    <span class="stat-label">Photos de Compétition</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">25</span>
-                    <span class="stat-label">Vidéos d'Exploits</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">5k+</span>
-                    <span class="stat-label">Abonnés Réseaux</span>
-                </div>
-            </div>
-
-            <!-- Liens de réseaux sociaux mis en évidence et en grand -->
-            <div class="social-hero-links">
-                <a href="https://wa.me/2693246465" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <!-- Lien Instagram corrigé -->
-                <a href="https://www.instagram.com/la_villa_dionysienne?igsh=cnZzN3MwNGcxOThm" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/share/1FcL1xJvfv/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-                <!-- Lien Threads corrigé -->
-                <a href="https://www.threads.net/@la_villa_dionysienne" target="_blank" title="Threads"><i class="fab fa-threads"></i></a>
-                <a href="https://x.com/LDyonisienne?fbclid=IwVERDUAOJjMZleHRuA2FlbQIxMABzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR7LlOOZt87NGMT5-1Y-8Po6QUC1a7-Zo_GEk4l2UXOj-CA-kV27qAB0qsxWpQ_aem_cuBzbUC6sGDEZoq_YHTQ8Q" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-            </div>
-
-            <a href="#contact" class="cta-button">
-                Nous Contacter Directement
-            </a>
-
+        <div class="flex gap-4 items-center">
+            <a href="https://wa.me/2693246465" target="_blank" class="text-green-500 text-xl"><i class="fab fa-whatsapp"></i></a>
         </div>
-    </section>
+    </nav>
 
-    <!-- SECTION 2: CONTACT -->
-<section id="contact" class="contact">
-        <h2>Contact & Informations</h2>
-        <p>Pour toute collaboration ou information supplémentaire concernant *LVD Global Investissement*, veuillez nous contacter :</p>
+    <!-- NAVIGATION PAR ONGLETS -->
+    <div class="flex glass border-b border-white/5 sticky top-[57px] z-40">
+        <button id="tab-gal" onclick="switchView('gal')" class="flex-1 py-4 text-[10px] font-bold uppercase tracking-widest tab-active">Réalisations</button>
+        <button id="tab-adm" onclick="switchView('adm')" class="flex-1 py-4 text-[10px] font-bold uppercase tracking-widest opacity-60">Gestion</button>
+    </div>
+
+    <main class="flex-grow p-4 max-w-md mx-auto w-full">
         
-        <p><i class="fas fa-envelope"></i> Email : <a href="mailto:mailprevis@gmail.com" class="contact-link">mailprevis@gmail.com</a></p>
-        <p><i class="fas fa-phone-alt"></i> Téléphone : <a href="tel:+2693246465" class="contact-link">+269 32 46 465</a></p>
-        <p><i class="fas fa-map-marker-alt"></i> Siège Principal (Google Maps) : <a href="https://share.google/E1piHgfjGR4JYri69" target="_blank" class="contact-link">Voir sur la carte</a></p>
-
-        <div class="social-links">
-            <h3>Retrouvez-nous aussi ici :</h3>
-            <a href="https://wa.me/2693246465" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            <!-- Lien Instagram corrigé -->
-            <a href="https://www.instagram.com/la_villa_dionysienne?igsh=cnZzN3MwNGcxOThm" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.facebook.com/share/1FcL1xJvfv/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-            <!-- Lien Threads corrigé -->
-            <a href="https://www.threads.net/@la_villa_dionysienne" target="_blank" title="Threads"><i class="fab fa-threads"></i></a>
-            <a href="https://x.com/LDyonisienne?fbclid=IwVERDUAOJjMZleHRuA2FlbQIxMABzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR7LlOOZt87NGMT5-1Y-8Po6QUC1a7-Zo_GEk4l2UXOj-CA-kV27qAB0qsxWpQ_aem_cuBzbUC6sGDEZoq_YHTQ8Q" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+        <!-- VUE PUBLIQUE (GALERIE) -->
+        <div id="view-gal">
+            <div class="text-center py-8">
+                <h2 class="text-3xl font-black italic uppercase tracking-tighter">Nos <span class="gold">Projets</span></h2>
+                <p class="text-[9px] text-slate-500 uppercase tracking-[0.4em] mt-2 italic">Excellence Immobilière</p>
+            </div>
+            
+            <div id="gallery-container" class="grid grid-cols-1 gap-8 pb-20">
+                <div class="text-center py-20 opacity-30 text-xs uppercase tracking-widest animate-pulse italic">Synchronisation Cloud...</div>
+            </div>
         </div>
-    </section>
 
-    <!-- FOOTER -->
-<footer class="footer">
-        <!-- NOUVEAU FOOTER -->
-        <p>&copy; 2025 LA VILLA DIONYSIENNE MC GLOBAL INVESTISSEMENT. Tous droits réservés.</p>
+        <!-- VUE ADMINISTRATION -->
+        <div id="view-adm" class="hidden py-6">
+            <!-- Formulaire Login -->
+            <div id="admin-login" class="py-10 text-center">
+                <div class="w-16 h-16 bg-slate-900 border border-white/10 rounded-3xl flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-lock gold text-xl"></i>
+                </div>
+                <h3 class="gold text-[10px] font-bold uppercase mb-8 tracking-[0.3em]">Espace Propriétaire</h3>
+                <input type="password" id="pass-input" placeholder="MOT DE PASSE" class="w-full bg-black border border-slate-800 p-5 rounded-2xl text-center text-white mb-4 outline-none focus:border-gold">
+                <button onclick="checkAccess()" class="w-full bg-gold text-black font-black p-5 rounded-2xl uppercase text-xs shadow-xl active:scale-95 transition-all">Accéder</button>
+                <p class="text-[9px] text-slate-600 mt-6 uppercase italic">Indice : LVD + Année en cours</p>
+            </div>
+
+            <!-- Panneau d'administration -->
+            <div id="admin-panel" class="hidden">
+                <div class="bg-green-500/10 border border-green-500/20 p-4 rounded-2xl mb-8 flex items-center justify-between">
+                    <p class="text-green-500 text-[10px] font-bold uppercase tracking-widest">Session Active</p>
+                    <button onclick="location.reload()" class="text-slate-400 text-[10px] uppercase font-bold underline">Fermer</button>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="bg-slate-900/50 p-6 rounded-[2rem] border border-white/5">
+                        <h3 class="gold text-[10px] font-bold uppercase mb-4 tracking-widest">Nouveau Contenu</h3>
+                        
+                        <label class="block text-[9px] uppercase text-slate-500 mb-2 ml-1">Type de média</label>
+                        <select id="media-type" class="w-full bg-black border border-slate-800 p-4 rounded-xl text-white text-xs mb-4 outline-none">
+                            <option value="image">Photo (Lien direct .jpg/.png)</option>
+                            <option value="video">Vidéo (Lien YouTube)</option>
+                        </select>
+
+                        <label class="block text-[9px] uppercase text-slate-500 mb-2 ml-1">Lien du média</label>
+                        <input type="url" id="media-url" placeholder="Collez le lien ici..." class="w-full bg-black border border-slate-800 p-4 rounded-xl text-white text-xs mb-6 outline-none focus:border-green-500">
+                        
+                        <button onclick="publishMedia()" id="btn-pub" class="w-full bg-green-500 text-black font-black p-4 rounded-xl uppercase text-[10px] shadow-lg">Publier sur le site</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-8 text-center opacity-20 mt-auto">
+        <p class="text-[9px] uppercase tracking-[0.4em]">LVD Global Invest © 2024</p>
     </footer>
 
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+        // CONFIGURATION FIREBASE
+        const firebaseConfig = JSON.parse('__firebase_config');
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+        const appId = '__app_id';
+        const colRef = collection(db, 'artifacts', appId, 'public', 'data', 'lvd_cloud_vfinal');
+
+        let isAdmin = false;
+
+        // AUTHENTIFICATION
+        async function init() {
+            try {
+                await signInAnonymously(auth);
+                listenToData();
+            } catch(e) { console.error("Erreur Cloud:", e); }
+        }
+
+        // CHARGEMENT DES DONNÉES
+        function listenToData() {
+            onSnapshot(colRef, (snap) => {
+                const container = document.getElementById('gallery-container');
+                container.innerHTML = '';
+                
+                let items = [];
+                snap.forEach(d => items.push({id: d.id, ...d.data()}));
+                items.sort((a,b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
+
+                if(items.length === 0) {
+                    container.innerHTML = '<div class="py-20 text-center opacity-20 uppercase text-[9px] font-bold tracking-[0.3em]">Aucun projet à afficher</div>';
+                    return;
+                }
+
+                items.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = "card shadow-2xl relative";
+                    
+                    let mediaHTML = '';
+                    if(item.type === 'video') {
+                        // Gestion lien YouTube
+                        let ytId = extractYoutubeId(item.url);
+                        mediaHTML = <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/${ytId}" frameborder="0" allowfullscreen></iframe>;
+                    } else {
+                        mediaHTML = <img src="${item.url}" class="w-full aspect-square object-cover" onerror="this.src='https://placehold.co/600x600/0f172a/FFD700?text=Image+Non+Disponible'">;
+                    }
+
+                    div.innerHTML = `
+                        ${mediaHTML}
+                        <div class="p-6 bg-gradient-to-t from-slate-950 to-slate-900">
+                            <div class="flex justify-between items-center">
+                                <span class="gold text-[10px] font-black italic uppercase tracking-widest">LVD Global MC</span>
+                                ${isAdmin ? <button onclick="window.deleteItem('${item.id}')" class="text-red-500 text-sm"><i class="fas fa-trash-alt"></i></button> : ''}
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(div);
+                });
+            });
+        }
+
+        function extractYoutubeId(url) {
+            const regExp = /^.(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]).*/;
+            const match = url.match(regExp);
+            return (match && match[2].length == 11) ? match[2] : url;
+        }
+
+        // GESTIONNAIRE
+        window.checkAccess = () => {
+            const pass = document.getElementById('pass-input').value;
+            // MOT DE PASSE : LVD2024
+            if(pass.toUpperCase() === "LVD2024") {
+                isAdmin = true;
+                document.getElementById('admin-login').classList.add('hidden');
+                document.getElementById('admin-panel').classList.remove('hidden');
+                listenToData();
+            } else {
+                alert("Mot de passe incorrect");
+            }
+        };
+
+        window.publishMedia = async () => {
+            const url = document.getElementById('media-url').value.trim();
+            const type = document.getElementById('media-type').value;
+            if(!url) return alert("Veuillez entrer un lien");
+
+            const btn = document.getElementById('btn-pub');
+            btn.disabled = true; btn.innerText = "PUBLICATION EN COURS...";
+
+            try {
+                await addDoc(colRef, {
+                    url: url,
+                    type: type,
+                    createdAt: serverTimestamp()
+                });
+                document.getElementById('media-url').value = '';
+                alert("Publié sur le site avec succès !");
+            } catch(e) {
+                alert("Erreur lors de la publication Cloud");
+            }
+            btn.disabled = false; btn.innerText = "Publier sur le site";
+        };
+
+        window.deleteItem = async (id) => {
+            if(confirm("Supprimer définitivement ce contenu ?")) {
+                await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'lvd_cloud_vfinal', id));
+            }
+        };
+
+        window.switchView = (type) => {
+            document.getElementById('view-gal').classList.toggle('hidden', type !== 'gal');
+            document.getElementById('view-adm').classList.toggle('hidden', type !== 'adm');
+            document.getElementById('tab-gal').classList.toggle('tab-active', type === 'gal');
+            document.getElementById('tab-adm').classList.toggle('tab-active', type === 'adm');
+            document.getElementById('tab-gal').classList.toggle('opacity-60', type !== 'gal');
+            document.getElementById('tab-adm').classList.toggle('opacity-60', type !== 'adm');
+        };
+
+        init();
+    </script>
 </body>
 </html>
